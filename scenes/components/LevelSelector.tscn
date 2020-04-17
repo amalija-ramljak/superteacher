@@ -42,18 +42,17 @@ margin_bottom = 100.0
 rect_min_size = Vector2( 420, 100 )
 
 [node name="LevelNameLabel" type="Label" parent="LevelSelectorContainer/LevelInfoContainer"]
-margin_top = -1.0
 margin_right = 420.0
-margin_bottom = 44.0
+margin_bottom = 45.0
 rect_min_size = Vector2( 420, 45 )
 custom_fonts/font = SubResource( 1 )
 text = " Level"
 valign = 1
 
 [node name="LevelProgressLabel" type="Label" parent="LevelSelectorContainer/LevelInfoContainer"]
-margin_top = 48.0
+margin_top = 49.0
 margin_right = 420.0
-margin_bottom = 98.0
+margin_bottom = 99.0
 rect_min_size = Vector2( 420, 50 )
 custom_fonts/font = SubResource( 2 )
 text = "      Prođena sva pitanja: 0
@@ -62,9 +61,8 @@ valign = 1
 
 [node name="HighScoreLabel" type="Label" parent="LevelSelectorContainer"]
 margin_left = 424.0
-margin_top = -1.0
 margin_right = 564.0
-margin_bottom = 99.0
+margin_bottom = 100.0
 rect_min_size = Vector2( 140, 100 )
 custom_fonts/font = SubResource( 3 )
 text = "Highscore:
