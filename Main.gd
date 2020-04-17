@@ -5,6 +5,7 @@ export (PackedScene) var LevelSelector
 # prepare level list, all user data...
 func _ready():
 	var levels = self.load("res://leveldata/level_list.tres")
+	var playable = ['Dvoriste']
 	print(levels)
 	# list with elements "name/hs/full_runs/current/total"
 	# that should change with special level data files and should be name only
@@ -19,6 +20,8 @@ func _ready():
 		level_selector.set_highscore(level[1])
 		level_selector.set_progress(level[2], level[3], level[4])
 		level_selector.rect_position.y += i * 120
+		if (!playable.has(level[0])):
+			level_selector.disabled = true
 		i += 1
 
 func load(var path):
