@@ -9,7 +9,7 @@ func set_name(var name):
 	$LevelSelectorContainer/LevelInfoContainer/LevelNameLabel.text = " %s" % name
 
 func set_progress(var full_runs, var current, var total):
-	var progress_text = "      Prođena sva pitanja: %s\n      Trenutno odgovorena pitanja: %s/%s"
+	var progress_text = "          Prođena sva pitanja: %s\n          Trenutno odgovorena pitanja: %s/%s"
 	$LevelSelectorContainer/LevelInfoContainer/LevelProgressLabel.text = progress_text % [full_runs, current, total]
 
 func set_highscore(var score):

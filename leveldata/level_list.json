@@ -1,0 +1,34 @@
+{
+    "list": ["Dvoriste", "Hodnik", "Ucionica", "Kabinet", "Zbornica"],
+    "playable": ["Dvoriste", "Hodnik"],
+    "Dvoriste": {
+        "highscore": 5,
+        "full_runs": 2,
+        "current": 5,
+        "total": 10
+    },
+    "Hodnik": {
+        "highscore": 2,
+        "full_runs": 0,
+        "current": 5,
+        "total": 15
+    },
+    "Ucionica": {
+        "highscore": 0,
+        "full_runs": 0,
+        "current": 0,
+        "total": 20
+    },
+    "Kabinet": {
+        "highscore": 0,
+        "full_runs": 0,
+        "current": 0,
+        "total": 5
+    },
+    "Zbornica": {
+        "highscore": 0,
+        "full_runs": 0,
+        "current": 0,
+        "total": 10
+    }
+}
