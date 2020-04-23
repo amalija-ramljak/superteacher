@@ -12,7 +12,7 @@ FER - Amalija Ramljak, Dajana Šeketa
 - Trivia game - content from UF classes
 
 ## Gameplay
-Vaguely resembling (and inspired by) Monopoly and Mensch aergere Dich nicht.
+Vaguely resembling (and inspired by) Monopoly and Ludo.
 
 A player moves field by field - almost every field opens a question. If it is answered correctly, the player moves forward. If incorrectly, the player remains in place and receives a new question.
 
