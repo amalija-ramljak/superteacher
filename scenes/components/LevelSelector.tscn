@@ -3,22 +3,22 @@
 [ext_resource path="res://fonts/QuickSand/Quicksand-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/components/LevelSelector.gd" type="Script" id=2]
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.458824, 0.458824, 0.458824, 1 )
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.188235, 0.188235, 0.188235, 1 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=3]
 size = 32
 extra_spacing_char = 2
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=4]
 size = 14
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=5]
 size = 20
 font_data = ExtResource( 1 )
 
@@ -29,8 +29,8 @@ margin_top = 150.0
 margin_right = -20.0
 margin_bottom = 250.0
 rect_scale = Vector2( 0.99872, 1 )
-custom_styles/disabled = SubResource( 4 )
-custom_styles/normal = SubResource( 5 )
+custom_styles/disabled = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -54,7 +54,7 @@ margin_bottom = 99.0
 margin_right = 420.0
 margin_bottom = 45.0
 rect_min_size = Vector2( 420, 45 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 text = "  Level"
 valign = 1
 
@@ -63,7 +63,7 @@ margin_top = 49.0
 margin_right = 420.0
 margin_bottom = 99.0
 rect_min_size = Vector2( 420, 50 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 text = "          Prođena sva pitanja: 0
           Trenutno odgovorena pitanja: 0/0"
 valign = 1
@@ -75,7 +75,7 @@ margin_bottom = 99.0
 rect_min_size = Vector2( 100, 0 )
 size_flags_horizontal = 8
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 5 )
 text = "Highscore:
 0"
 align = 1
