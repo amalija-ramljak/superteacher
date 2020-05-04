@@ -1,5 +1,5 @@
 {
-    "1": {
+    "0": {
         "text": "Ovo je tekst prvog pitanja?",
         "answer": "optionA",
         "optionA": "odg a",
@@ -7,7 +7,7 @@
         "optionC": "odg c",
         "optionD": "odg d"
     },
-    "2": {
+    "1": {
         "text": "Ovo je tekst drugog pitanja?",
         "answer": "optionB",
         "optionA": "odg a",
@@ -15,7 +15,7 @@
         "optionC": "odg c",
         "optionD": "odg d"
     },
-    "3": {
+    "2": {
         "text": "Ovo je tekst treceg pitanja?",
         "answer": "optionC",
         "optionA": "odg a",
@@ -23,7 +23,7 @@
         "optionC": "odg c",
         "optionD": "odg d"
     },
-    "4": {
+    "3": {
         "text": "Ovo je tekst cetvrtog pitanja?",
         "answer": "optionD",
         "optionA": "odg a",
@@ -31,7 +31,7 @@
         "optionC": "odg c",
         "optionD": "odg d"
     },
-    "5": {
+    "4": {
         "text": "Ovo je tekst petog pitanja?",
         "answer": "optionA",
         "optionA": "odg a",
