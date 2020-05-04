@@ -18,8 +18,10 @@ __meta__ = {
 }
 
 [node name="QuestionFeedback" type="Label" parent="."]
-margin_right = 374.0
-margin_bottom = 35.0
+margin_left = -0.328552
+margin_top = 0.328552
+margin_right = 373.671
+margin_bottom = 35.3286
 text = "Tocan odgovor! / Pogresan odgovor!"
 __meta__ = {
 "_edit_use_anchors_": false
