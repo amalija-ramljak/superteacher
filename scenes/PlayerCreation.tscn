@@ -1,0 +1,89 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://scenes/PlayerCreation.gd" type="Script" id=3]
+
+[node name="PlayerCreation" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Male" type="Button" parent="."]
+margin_left = 165.476
+margin_top = 553.144
+margin_right = 241.476
+margin_bottom = 623.144
+icon = ExtResource( 2 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Male"]
+margin_left = 17.9123
+margin_top = 78.947
+margin_right = 57.9123
+margin_bottom = 92.947
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Male"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Female" type="Button" parent="."]
+margin_left = 339.346
+margin_top = 551.469
+margin_right = 415.346
+margin_bottom = 621.469
+icon = ExtResource( 2 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Female"]
+margin_left = 17.9123
+margin_top = 79.6104
+margin_right = 57.9123
+margin_bottom = 93.6104
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Female"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerName" type="LineEdit" parent="."]
+margin_left = 109.0
+margin_top = 290.0
+margin_right = 491.0
+margin_bottom = 352.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="PlayerName"]
+margin_left = 5.44147
+margin_top = -24.4867
+margin_right = 45.4415
+margin_bottom = -10.4867
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Unesi svoje ime:"
+
+[node name="Label" type="Label" parent="."]
+margin_left = 176.0
+margin_top = 482.0
+margin_right = 399.0
+margin_bottom = 516.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Odaberi svoj avatar"
+align = 1
+valign = 1
+[connection signal="button_up" from="Male" to="." method="male"]
+[connection signal="button_up" from="Female" to="." method="female"]
+[connection signal="text_changed" from="PlayerName" to="." method="_on_PlayerName_text_changed"]

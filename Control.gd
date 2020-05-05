@@ -15,7 +15,20 @@ func _ready():
 #func _process(delta):
 #	pass
 
-var next_scene = preload("res://scenes/Main.tscn")
+var level_selector = preload("res://scenes/Main.tscn")
+var player_create = preload("res://scenes/PlayerCreation.tscn")
 
 func _on_Button_pressed():
-	get_tree().change_scene_to(next_scene)
+	var config = ConfigFile.new()
+	var err = config.load("user://settings.cfg")
+	if err == OK:
+		get_tree().change_scene_to(level_selector)
+	else:
+		get_tree().change_scene_to(player_create)
+
+func load(var path):
+	var file = File.new()
+	file.open(path, File.READ)
+	var content = file.get_as_text()
+	file.close()
+	return content
