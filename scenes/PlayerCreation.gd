@@ -20,3 +20,4 @@ func configure_player(gender):
 	config.set_value("player_data", "name", self.player_name)
 	config.set_value("player_data", "gender", gender)
 	config.save("user://settings.cfg")
+	get_tree().change_scene("res://scenes/Main.tscn")

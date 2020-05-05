@@ -16,7 +16,6 @@ func _ready():
 #	pass
 
 var level_selector = preload("res://scenes/Main.tscn")
-var player_create = preload("res://scenes/PlayerCreation.tscn")
 
 func _on_Button_pressed():
 	var config = ConfigFile.new()
@@ -24,7 +23,7 @@ func _on_Button_pressed():
 	if err == OK:
 		get_tree().change_scene_to(level_selector)
 	else:
-		get_tree().change_scene_to(player_create)
+		get_tree().change_scene("res://scenes/PlayerCreation.tscn")
 
 func load(var path):
 	var file = File.new()
