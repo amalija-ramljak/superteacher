@@ -1,38 +1,40 @@
 extends Panel
 
 var situation
-var unseenSituations
-var seenSituations
-var randomSituationNumber
+var situations
+var notSeenKeys
+var seenKeys = Array()
+var randomIndex
+var randomSituationKey
 
 func _ready():
-	#load json file with situations list and parse it to the unseenSituations dictionary
-	unseenSituations = self.load("res://leveldata/level1_situations_list.json")
-	unseenSituations = JSON.parse(unseenSituations).result
+	#load json file with situations list and parse it to the situations dictionary
+	situations = self.load("res://leveldata/level1_situations_list.json")
+	situations = JSON.parse(situations).result
+	#fill notSeenKeys array with situations dictionary keys
+	notSeenKeys = situations.keys()
 	
-	#generate random key for the unseenSituations dictionary
+	#ensure that a new seed will be used each time (if you want non-reproducible shuffling)
 	randomize()
-	randomSituationNumber = randi()%unseenSituations.size()
+	#generate random key for the situations dictionary
+	randomIndex = randi()%notSeenKeys.size()
 	
-	#if unseenSituations dictionary doesn't have random generated key, generate a new one
-	while(!unseenSituations.has(str(randomSituationNumber))):
-		randomize()
-		randomSituationNumber = randi()%unseenSituations.size()
+	#select randomly chosen situation from the situations dictionary
+	randomSituationKey = notSeenKeys[randomIndex]
+	situation = situations[str(randomSituationKey)]
 		
-	#select randomly chosen situation from the unseenSituations dictionary
-	situation = unseenSituations[str(randomSituationNumber)]
-	#add chosen situation to the seenSituations dictionary
-	seenSituations={str(randomSituationNumber): {"text": situation.text, "consequence": situation.consequence}}
-	#...and remove it from the unseenSituations
-	unseenSituations.erase(str(randomSituationNumber))
+	#add chosen situation to the seenKeys array
+	seenKeys.append(randomSituationKey)
+	#...and remove it from the notSeenKeys
+	notSeenKeys.remove(randomIndex)
 	
 	set_situation_txt(situation.text)
 	set_situation_consequence(int(situation.consequence))
 	
-	#if unseenSituations dictionary is empty, refill it 
-	if(unseenSituations.empty()):
-		unseenSituations=seenSituations
-		seenSituations.clear()
+	#if notSeenKeys array is empty, refill it 
+	if(notSeenKeys.empty()):
+		notSeenKeys=seenKeys
+		seenKeys.clear()
 
 func load(var path):
 	var file = File.new()

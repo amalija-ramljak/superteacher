@@ -3,45 +3,38 @@ export (PackedScene) var QuestionFeedbackCard
 
 var AnswersButtonGroup
 var question
-var unansweredQuestions
-var answeredQuestions
+var questions
+var unansweredKeys
+var answeredKeys = Array()
+var randomIndex
+var randomQuestionKey
 
 func _ready():
 	#group buttons so they act as radio buttons
 	AnswersButtonGroup = ButtonGroup.new()
-	$Answers/answerA.set_button_group(AnswersButtonGroup)
-	$Answers/answerB.set_button_group(AnswersButtonGroup)
-	$Answers/answerC.set_button_group(AnswersButtonGroup)
-	$Answers/answerD.set_button_group(AnswersButtonGroup)
+	$Answers/optionA.set_button_group(AnswersButtonGroup)
+	$Answers/optionB.set_button_group(AnswersButtonGroup)
+	$Answers/optionC.set_button_group(AnswersButtonGroup)
+	$Answers/optionD.set_button_group(AnswersButtonGroup)
 	
-	#load json file with questions list and parse it to the unansweredQuestions dictionary
-	unansweredQuestions = self.load("res://leveldata/level1_questions_list.json")
-	unansweredQuestions = JSON.parse(unansweredQuestions).result
+	#load json file with questions and parse it to the questions dictionary
+	questions = self.load("res://leveldata/level1_questions_list.json")
+	questions = JSON.parse(questions).result
+	#fill unansweredKeys array with questions dictionary keys
+	unansweredKeys = questions.keys()
 	
-	#generate random key for the unansweredQuestions dictionary
+	#ensure that a new seed will be used each time (if you want non-reproducible shuffling)
 	randomize()
-	var randomQuestionNumber = randi()%unansweredQuestions.size()
-	
-	#if unseenSituations dictionary doesn't have random generated key, generate a new one
-	while(!unansweredQuestions.has(str(randomQuestionNumber))):
-		randomize()
-		randomQuestionNumber = randi()%unansweredQuestions.size()
+	#generate random key for the questions dictionary
+	randomIndex = randi()%unansweredKeys.size()
 		
-	#select randomly chosen question from the unansweredQuestions dictionary
-	question = unansweredQuestions[str(randomQuestionNumber)]
+	#select randomly chosen question from the questions dictionary
+	randomQuestionKey = unansweredKeys[randomIndex]
+	question = questions[str(randomQuestionKey)]
 	
-	#add chosen question to the answeredQuestions dictionary
-	answeredQuestions={str(randomQuestionNumber): {"text": question.text, "answer": question.answer, "optionA": question.optionA, "optionB": question.optionB, "optionC": question.optionC, "optionD": question.optionD}}
-	#...and remove it from the unansweredQuestions
-	unansweredQuestions.erase(str(randomQuestionNumber))
 	set_question_txt(question.text)
 	for i in range(4):
-		set_answer(i)
-		
-	#if unansweredQuestions dictionary is empty, refill it 
-	if(unansweredQuestions.empty()):
-		unansweredQuestions=answeredQuestions
-		answeredQuestions.clear()
+		set_answer_txt(i)
 
 func load(var path):
 	var file = File.new()
@@ -53,30 +46,37 @@ func load(var path):
 func set_question_txt(var txt):
 	$QuestionText.text = " %s" % txt
 	
-func set_answer(var answerNum):
+func set_answer_txt(var answerNum):
 	match answerNum:
 		0: 
-			$Answers/answerA.text = " %s" % question.optionA
+			$Answers/optionA.text = " %s" % question.optionA
 		1: 
-			$Answers/answerB.text = " %s" % question.optionB
+			$Answers/optionB.text = " %s" % question.optionB
 		2: 
-			$Answers/answerC.text = " %s" % question.optionC
+			$Answers/optionC.text = " %s" % question.optionC
 		3: 
-			$Answers/answerD.text = " %s" % question.optionD
+			$Answers/optionD.text = " %s" % question.optionD
 	
 func _on_Button_pressed():
 	queue_free() 
 	var question_feedback = preload("res://scenes/components/QuestionFeedbackCard.tscn").instance()
 	self.get_parent().add_child(question_feedback)
 	#selected correct answer
-	if (AnswersButtonGroup.get_pressed_button()):
+	if ((AnswersButtonGroup.get_pressed_button()==$Answers/optionA && question.answer=="a")
+		|| (AnswersButtonGroup.get_pressed_button()==$Answers/optionB && question.answer=="b")
+		|| (AnswersButtonGroup.get_pressed_button()==$Answers/optionC && question.answer=="c")
+		|| (AnswersButtonGroup.get_pressed_button()==$Answers/optionD && question.answer=="d")):
 		question_feedback.positive_feedback()
-		print(AnswersButtonGroup.get_pressed_button())
-	#selected wrong answer
-	elif (AnswersButtonGroup.get_pressed_button()):
-		question_feedback.negative_feedback()
-		print("druga")
-	#no answer selected, but pressed the answer button
+		
+		#if answer is correct, remove question key from the unansweredKeys array 
+		unansweredKeys.remove(randomIndex)
+		#...and add it to the answeredKeys array
+		answeredKeys.append(randomQuestionKey)
+		
+		#if unansweredKeys array is empty, refill it 
+		if(unansweredKeys.empty()):
+			unansweredKeys=answeredKeys
+			answeredKeys.clear()
+	#selected wrong answer or no answer selected
 	else:
-		print("treca")
-	
+		question_feedback.negative_feedback()

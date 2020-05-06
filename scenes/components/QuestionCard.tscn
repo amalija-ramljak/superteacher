@@ -38,7 +38,7 @@ margin_top = 18.0
 margin_right = 375.0
 margin_bottom = 126.0
 
-[node name="answerA" type="CheckBox" parent="Answers"]
+[node name="optionA" type="CheckBox" parent="Answers"]
 margin_right = 24.0
 margin_bottom = 24.0
 action_mode = 0
@@ -47,21 +47,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="answerB" type="CheckBox" parent="Answers"]
+[node name="optionB" type="CheckBox" parent="Answers"]
 margin_top = 28.0
 margin_right = 24.0
 margin_bottom = 52.0
 action_mode = 0
 group = SubResource( 2 )
 
-[node name="answerC" type="CheckBox" parent="Answers"]
+[node name="optionC" type="CheckBox" parent="Answers"]
 margin_top = 56.0
 margin_right = 24.0
 margin_bottom = 80.0
 action_mode = 0
 group = SubResource( 3 )
 
-[node name="answerD" type="CheckBox" parent="Answers"]
+[node name="optionD" type="CheckBox" parent="Answers"]
 margin_top = 84.0
 margin_right = 24.0
 margin_bottom = 108.0
