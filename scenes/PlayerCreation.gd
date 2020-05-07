@@ -20,4 +20,9 @@ func configure_player(gender):
 	config.set_value("player_data", "name", self.player_name)
 	config.set_value("player_data", "gender", gender)
 	config.save("user://settings.cfg")
+	
+	var game = File.new()
+	game.open("user://game.save", File.WRITE)
+	game.store_line(to_json({"unlocked": ["Dvoriste"]}))
+	game.close()
 	get_tree().change_scene("res://scenes/Main.tscn")
