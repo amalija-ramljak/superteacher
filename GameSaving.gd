@@ -1,5 +1,7 @@
 func load_game():
-	pass
+	var game = File.new()
+	game.open("user://game.save", File.READ)
 
 func save_game():
-	pass
+	var game = File.new()
+	game.open("user://game.save", File.WRITE)
