@@ -1,7 +1,5 @@
 extends Control
 
-
-# prepare level list, all user data...
 func _ready():
 	pass
 

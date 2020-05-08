@@ -1,17 +1,10 @@
 extends Control
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# load data from its file - question list! and also load user stuff
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	var situations = [5, 9, 13]
+	for number in situations:
+		var c = self.get_child(number+1)
+		c.situation()
+	

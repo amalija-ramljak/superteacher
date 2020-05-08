@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/components/LevelField.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/components/InGameScore.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/components/SituationField.tscn" type="PackedScene" id=3]
 [ext_resource path="res://leveldata/scenes/scripts/Hodnik.gd" type="Script" id=4]
 
 [node name="Hodnik" type="Control"]
@@ -17,55 +16,58 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="InGameScore" parent="." instance=ExtResource( 2 )]
+
 [node name="01" parent="." instance=ExtResource( 1 )]
-position = Vector2( 492.387, 852.954 )
+position = Vector2( 519.363, 882.652 )
 
 [node name="02" parent="." instance=ExtResource( 1 )]
-position = Vector2( 448.447, 766.366 )
+position = Vector2( 407.984, 853.341 )
 
 [node name="03" parent="." instance=ExtResource( 1 )]
-position = Vector2( 355.397, 737.934 )
+position = Vector2( 294.064, 863.127 )
 
 [node name="04" parent="." instance=ExtResource( 1 )]
-position = Vector2( 254.594, 746.981 )
+position = Vector2( 180.194, 868.286 )
 
-[node name="05" parent="." instance=ExtResource( 3 )]
-position = Vector2( 195.145, 756.027 )
+[node name="05" parent="." instance=ExtResource( 1 )]
+position = Vector2( 89.6623, 805.203 )
 
 [node name="06" parent="." instance=ExtResource( 1 )]
-position = Vector2( 80.1259, 643.592 )
+position = Vector2( 94.4698, 701.388 )
 
 [node name="07" parent="." instance=ExtResource( 1 )]
-position = Vector2( 108.558, 527.281 )
+position = Vector2( 174.621, 643.337 )
 
 [node name="08" parent="." instance=ExtResource( 1 )]
-position = Vector2( 210.654, 506.603 )
+position = Vector2( 280.38, 653.031 )
 
-[node name="09" parent="." instance=ExtResource( 3 )]
-position = Vector2( 356.69, 551.835 )
+[node name="09" parent="." instance=ExtResource( 1 )]
+position = Vector2( 388.537, 648.733 )
 
 [node name="10" parent="." instance=ExtResource( 1 )]
-position = Vector2( 416.138, 529.865 )
+position = Vector2( 479.517, 597.112 )
 
 [node name="11" parent="." instance=ExtResource( 1 )]
-position = Vector2( 452.324, 420.015 )
+position = Vector2( 526.076, 510.996 )
 
 [node name="12" parent="." instance=ExtResource( 1 )]
-position = Vector2( 357.982, 339.889 )
+position = Vector2( 446.15, 437.463 )
 
-[node name="13" parent="." instance=ExtResource( 3 )]
-position = Vector2( 285.61, 368.321 )
+[node name="13" parent="." instance=ExtResource( 1 )]
+position = Vector2( 349.859, 418.424 )
 
 [node name="14" parent="." instance=ExtResource( 1 )]
-position = Vector2( 149.913, 306.288 )
+position = Vector2( 249.772, 429.354 )
 
 [node name="15" parent="." instance=ExtResource( 1 )]
-position = Vector2( 85.2954, 224.87 )
+position = Vector2( 140.323, 425.819 )
 
 [node name="16" parent="." instance=ExtResource( 1 )]
-position = Vector2( 129.235, 131.82 )
+position = Vector2( 77.2836, 345.603 )
 
 [node name="17" parent="." instance=ExtResource( 1 )]
-position = Vector2( 233.916, 111.142 )
+position = Vector2( 137.046, 263.656 )
 
-[node name="InGameScore" parent="." instance=ExtResource( 2 )]
+[node name="18" parent="." instance=ExtResource( 1 )]
+position = Vector2( 225.035, 233.825 )

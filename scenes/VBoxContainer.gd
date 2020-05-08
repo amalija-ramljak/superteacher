@@ -14,8 +14,8 @@ func _ready():
 		level_selector.set_name(level)
 		level_selector.set_highscore(levels[level].highscore)
 		level_selector.set_progress(levels[level].full_runs, levels[level].current, levels[level].total)
-		#level_selector.rect_position.y += i * 120
-		level_selector.connect("button_up", self.get_parent(), "on_level_selected", [level_selector.level_name])
+		# terrible but oh well
+		level_selector.get_child(0).connect("button_up", self.get_parent().get_parent(), "on_level_selected", [level_selector.level_name])
 		if (!levels.playable.has(level)):
 			level_selector.disable()
 		i += 1
