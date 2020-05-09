@@ -18,56 +18,71 @@ __meta__ = {
 
 [node name="InGameScore" parent="." instance=ExtResource( 2 )]
 
-[node name="01" parent="." instance=ExtResource( 1 )]
-position = Vector2( 519.363, 882.652 )
+[node name="LevelField" parent="." instance=ExtResource( 1 )]
+position = Vector2( 438.108, 883.97 )
 
-[node name="02" parent="." instance=ExtResource( 1 )]
-position = Vector2( 407.984, 853.341 )
+[node name="LevelField2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 529.865, 819.352 )
 
-[node name="03" parent="." instance=ExtResource( 1 )]
-position = Vector2( 294.064, 863.127 )
+[node name="LevelField3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 493.679, 732.764 )
 
-[node name="04" parent="." instance=ExtResource( 1 )]
-position = Vector2( 180.194, 868.286 )
+[node name="LevelField4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 403.214, 731.472 )
 
-[node name="05" parent="." instance=ExtResource( 1 )]
-position = Vector2( 89.6623, 805.203 )
+[node name="LevelField5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 314.042, 784.459 )
 
-[node name="06" parent="." instance=ExtResource( 1 )]
-position = Vector2( 94.4698, 701.388 )
+[node name="LevelField6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 222.285, 816.767 )
 
-[node name="07" parent="." instance=ExtResource( 1 )]
-position = Vector2( 174.621, 643.337 )
+[node name="LevelField7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 121.481, 788.336 )
 
-[node name="08" parent="." instance=ExtResource( 1 )]
-position = Vector2( 280.38, 653.031 )
+[node name="LevelField8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 56.8636, 700.456 )
 
-[node name="09" parent="." instance=ExtResource( 1 )]
-position = Vector2( 388.537, 648.733 )
+[node name="LevelField9" parent="." instance=ExtResource( 1 )]
+position = Vector2( 74.9565, 604.821 )
 
-[node name="10" parent="." instance=ExtResource( 1 )]
-position = Vector2( 479.517, 597.112 )
+[node name="LevelField10" parent="." instance=ExtResource( 1 )]
+position = Vector2( 171.883, 566.051 )
 
-[node name="11" parent="." instance=ExtResource( 1 )]
-position = Vector2( 526.076, 510.996 )
+[node name="LevelField11" parent="." instance=ExtResource( 1 )]
+position = Vector2( 276.564, 599.652 )
 
-[node name="12" parent="." instance=ExtResource( 1 )]
-position = Vector2( 446.15, 437.463 )
+[node name="LevelField12" parent="." instance=ExtResource( 1 )]
+position = Vector2( 379.952, 598.36 )
 
-[node name="13" parent="." instance=ExtResource( 1 )]
-position = Vector2( 349.859, 418.424 )
+[node name="LevelField13" parent="." instance=ExtResource( 1 )]
+position = Vector2( 471.709, 559.589 )
 
-[node name="14" parent="." instance=ExtResource( 1 )]
-position = Vector2( 249.772, 429.354 )
+[node name="LevelField14" parent="." instance=ExtResource( 1 )]
+position = Vector2( 487.217, 462.663 )
 
-[node name="15" parent="." instance=ExtResource( 1 )]
-position = Vector2( 140.323, 425.819 )
+[node name="LevelField15" parent="." instance=ExtResource( 1 )]
+position = Vector2( 408.384, 403.214 )
 
-[node name="16" parent="." instance=ExtResource( 1 )]
-position = Vector2( 77.2836, 345.603 )
+[node name="LevelField16" parent="." instance=ExtResource( 1 )]
+position = Vector2( 308.872, 409.676 )
 
-[node name="17" parent="." instance=ExtResource( 1 )]
-position = Vector2( 137.046, 263.656 )
+[node name="LevelField17" parent="." instance=ExtResource( 1 )]
+position = Vector2( 201.607, 405.799 )
 
-[node name="18" parent="." instance=ExtResource( 1 )]
-position = Vector2( 225.035, 233.825 )
+[node name="LevelField18" parent="." instance=ExtResource( 1 )]
+position = Vector2( 108.558, 341.181 )
+
+[node name="LevelField19" parent="." instance=ExtResource( 1 )]
+position = Vector2( 103.388, 233.916 )
+
+[node name="LevelField20" parent="." instance=ExtResource( 1 )]
+position = Vector2( 189.976, 175.76 )
+
+[node name="LevelField21" parent="." instance=ExtResource( 1 )]
+position = Vector2( 299.826, 205.484 )
+
+[node name="LevelField22" parent="." instance=ExtResource( 1 )]
+position = Vector2( 410.968, 214.531 )
+
+[node name="LevelField23" parent="." instance=ExtResource( 1 )]
+position = Vector2( 492.387, 161.544 )

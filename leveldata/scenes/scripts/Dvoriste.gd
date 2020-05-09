@@ -1,16 +1,13 @@
 extends Control
 
+# the functions shared by levels
+var level_loader = preload("res://leveldata/LevelLoad.gd").new()
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var question_path = "res://leveldata/questions/dvoriste.json"
+var questions
 
+var situation_path = "res://leveldata/situations/dvoriste.json"
+var situation_numbers = [7, 15, 21]
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	questions = level_loader.load_level(self, situation_numbers, question_path)

@@ -1,10 +1,14 @@
 extends Control
 
+# the functions shared by levels
+var level_loader = preload("res://leveldata/LevelLoad.gd").new()
 
-# Called when the node enters the scene tree for the first time.
+var question_path = "res://leveldata/questions/hodnik.json"
+var questions
+
+var situation_path = "res://leveldata/situations/hodnik.json"
+var situation_numbers = [6, 13, 20]
+
 func _ready():
-	var situations = [5, 9, 13]
-	for number in situations:
-		var c = self.get_child(number+1)
-		c.situation()
-	
+	questions = level_loader.load_level(self, situation_numbers, question_path)
+	print(questions)
