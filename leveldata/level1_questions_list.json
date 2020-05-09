@@ -1,0 +1,27 @@
+{
+    "0": {
+        "text": "Ovo je tekst prvog pitanja?",
+        "correctAnswer": "0",
+        "answers": ["odg a", "odg b", "odg c", "odg d"]
+    },
+    "1": {
+        "text": "Ovo je tekst drugog pitanja?",
+        "correctAnswer": "1",
+        "answers": ["odg a", "odg b", "odg c", "odg d"]
+    },
+    "2": {
+        "text": "Ovo je tekst treceg pitanja?",
+        "correctAnswer": "2",
+        "answers": ["odg a", "odg b", "odg c", "odg d"]
+    },
+    "3": {
+        "text": "Ovo je tekst cetvrtog pitanja?",
+        "correctAnswer": "3",
+        "answers": ["odg a", "odg b", "odg c", "odg d"]
+    },
+    "4": {
+        "text": "Ovo je tekst petog pitanja?",
+        "correctAnswer": "0",
+        "answers": ["odg a", "odg b", "odg c", "odg d"]
+    }
+}

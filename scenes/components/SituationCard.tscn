@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/components/SituationCard.gd" type="Script" id=1]
+
+[node name="SituationCard" type="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -187.5
+margin_top = -84.0
+margin_right = 187.5
+margin_bottom = 84.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SituationText" type="Label" parent="."]
+margin_right = 373.0
+margin_bottom = 70.0
+text = "Tekst random situacije"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SituationConsequence" type="Label" parent="."]
+margin_left = 0.965393
+margin_top = 78.8186
+margin_right = 375.965
+margin_bottom = 120.819
+text = "Posljedica random situacije"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+anchor_top = 0.06
+anchor_bottom = 0.06
+margin_top = 129.378
+margin_right = 375.0
+margin_bottom = 149.378
+text = "U redu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
