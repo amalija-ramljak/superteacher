@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/components/LevelField.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/components/InGameScore.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/components/GoalSign.tscn" type="PackedScene" id=3]
 [ext_resource path="res://leveldata/scenes/scripts/Hodnik.gd" type="Script" id=4]
 
 [node name="Hodnik" type="Control"]
@@ -16,7 +17,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="InGameScore" parent="." instance=ExtResource( 2 )]
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="InGameScore" parent="Control" instance=ExtResource( 2 )]
+margin_left = -20.0
+margin_right = 580.0
+
+[node name="GoalSign" parent="Control" instance=ExtResource( 3 )]
+position = Vector2( 514.15, 89.5616 )
 
 [node name="LevelField" parent="." instance=ExtResource( 1 )]
 position = Vector2( 438.108, 883.97 )

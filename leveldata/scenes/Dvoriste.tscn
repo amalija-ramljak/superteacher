@@ -1,8 +1,94 @@
-[gd_scene format=2]
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/components/InGameScore.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/components/LevelField.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/components/GoalSign.tscn" type="PackedScene" id=3]
+[ext_resource path="res://leveldata/scenes/scripts/Dvoriste.gd" type="Script" id=4]
 
 [node name="Dvoriste" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="InGameScore" parent="Control" instance=ExtResource( 1 )]
+margin_left = -20.0
+margin_right = 580.0
+
+[node name="GoalSign" parent="Control" instance=ExtResource( 3 )]
+position = Vector2( 510.962, 56.0875 )
+
+[node name="LevelField" parent="." instance=ExtResource( 2 )]
+position = Vector2( 44.8044, 894.14 )
+
+[node name="LevelField2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 85.7127, 775.311 )
+
+[node name="LevelField3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 44.8043, 668.17 )
+
+[node name="LevelField4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 116.201, 590.596 )
+
+[node name="LevelField5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 221.233, 648.821 )
+
+[node name="LevelField6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 261.034, 761.675 )
+
+[node name="LevelField7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 354.539, 837.647 )
+
+[node name="LevelField8" parent="." instance=ExtResource( 2 )]
+position = Vector2( 481.16, 829.855 )
+
+[node name="LevelField9" parent="." instance=ExtResource( 2 )]
+position = Vector2( 518.173, 734.402 )
+
+[node name="LevelField10" parent="." instance=ExtResource( 2 )]
+position = Vector2( 471.42, 635.054 )
+
+[node name="LevelField11" parent="." instance=ExtResource( 2 )]
+position = Vector2( 508.432, 520.121 )
+
+[node name="LevelField12" parent="." instance=ExtResource( 2 )]
+position = Vector2( 531.809, 412.98 )
+
+[node name="LevelField13" parent="." instance=ExtResource( 2 )]
+position = Vector2( 442.2, 366.227 )
+
+[node name="LevelField14" parent="." instance=ExtResource( 2 )]
+position = Vector2( 344.799, 381.811 )
+
+[node name="LevelField15" parent="." instance=ExtResource( 2 )]
+position = Vector2( 253.242, 430.512 )
+
+[node name="LevelField16" parent="." instance=ExtResource( 2 )]
+position = Vector2( 149.997, 426.616 )
+
+[node name="LevelField17" parent="." instance=ExtResource( 2 )]
+position = Vector2( 70.1287, 348.695 )
+
+[node name="LevelField18" parent="." instance=ExtResource( 2 )]
+position = Vector2( 91.5568, 229.866 )
+
+[node name="LevelField19" parent="." instance=ExtResource( 2 )]
+position = Vector2( 181.166, 183.114 )
+
+[node name="LevelField20" parent="." instance=ExtResource( 2 )]
+position = Vector2( 284.41, 206.49 )
+
+[node name="LevelField21" parent="." instance=ExtResource( 2 )]
+position = Vector2( 383.759, 220.126 )
+
+[node name="LevelField22" parent="." instance=ExtResource( 2 )]
+position = Vector2( 479.212, 188.958 )
+
+[node name="LevelField23" parent="." instance=ExtResource( 2 )]
+position = Vector2( 542.173, 118.976 )
