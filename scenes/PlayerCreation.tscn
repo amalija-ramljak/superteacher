@@ -1,11 +1,16 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
+[ext_resource path="res://fonts/QuickSand/QSDynamic16.tres" type="DynamicFont" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://scenes/PlayerCreation.gd" type="Script" id=3]
 
 [node name="PlayerCreation" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 1.89075
+margin_top = -0.630249
+margin_right = 1.89075
+margin_bottom = -0.630249
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -23,13 +28,14 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Male"]
-margin_left = 17.9123
-margin_top = 78.947
-margin_right = 57.9123
-margin_bottom = 92.947
+margin_left = 11.6975
+margin_top = 70.8068
+margin_right = 62.6975
+margin_bottom = 101.807
+custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-text = "Male"
+text = "muško"
 align = 1
 valign = 1
 __meta__ = {
@@ -37,10 +43,10 @@ __meta__ = {
 }
 
 [node name="Female" type="Button" parent="."]
-margin_left = 339.346
-margin_top = 551.469
-margin_right = 415.346
-margin_bottom = 621.469
+margin_left = 327.371
+margin_top = 553.36
+margin_right = 403.371
+margin_bottom = 623.36
 icon = ExtResource( 2 )
 flat = true
 __meta__ = {
@@ -48,12 +54,14 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Female"]
-margin_left = 17.9123
-margin_top = 79.6104
-margin_right = 57.9123
-margin_bottom = 93.6104
+margin_left = 12.2401
+margin_top = 75.8289
+margin_right = 65.2401
+margin_bottom = 118.829
+custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Female"
+text = "žensko
+"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -68,18 +76,20 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="PlayerName"]
-margin_left = 5.44147
-margin_top = -24.4867
-margin_right = 45.4415
-margin_bottom = -10.4867
+margin_left = 2.29024
+margin_top = -27.0077
+margin_right = 119.29
+margin_bottom = -7.0077
+custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Unesi svoje ime:"
 
 [node name="Label" type="Label" parent="."]
-margin_left = 176.0
-margin_top = 482.0
-margin_right = 399.0
-margin_bottom = 516.0
+margin_left = 172.219
+margin_top = 488.933
+margin_right = 395.219
+margin_bottom = 522.933
+custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Odaberi svoj avatar"
 align = 1
