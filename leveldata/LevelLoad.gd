@@ -11,3 +11,11 @@ func set_situations(indices, level_node):
 	var situation_texture = load("res://visuals/images/smallstar.png")
 	for index in indices:
 		level_node.get_child(index).get_child(0).texture = situation_texture
+
+func start_level(level_node):
+	# create a button to start the questions
+	# add it as a child to the level
+	# it needs to be connected to its own pressed state to hide itself
+	# or the level should handle it by removing that child? it will probably be
+	# at the last index of its children
+	pass

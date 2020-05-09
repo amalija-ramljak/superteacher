@@ -11,4 +11,4 @@ var situation_numbers = [6, 13, 20]
 
 func _ready():
 	questions = level_loader.load_level(self, situation_numbers, question_path)
-	print(questions)
+	level_loader.start_level()
