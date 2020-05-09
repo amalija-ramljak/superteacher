@@ -8,6 +8,7 @@ var unansweredKeys
 var answeredKeys = Array()
 var randomIndex
 var randomQuestionKey
+var answerIndex = [0, 1, 2, 3]
 
 func _ready():
 	#group buttons so they act as radio buttons
@@ -32,9 +33,11 @@ func _ready():
 	randomQuestionKey = unansweredKeys[randomIndex]
 	question = questions[str(randomQuestionKey)]
 	
+	#shuffle answers order
+	answerIndex.shuffle()
+	
 	set_question_txt(question.text)
-	for i in range(4):
-		set_answer_txt(i)
+	set_answers_txt()
 
 func load(var path):
 	var file = File.new()
@@ -46,26 +49,21 @@ func load(var path):
 func set_question_txt(var txt):
 	$QuestionText.text = " %s" % txt
 	
-func set_answer_txt(var answerNum):
-	match answerNum:
-		0: 
-			$Answers/optionA.text = " %s" % question.optionA
-		1: 
-			$Answers/optionB.text = " %s" % question.optionB
-		2: 
-			$Answers/optionC.text = " %s" % question.optionC
-		3: 
-			$Answers/optionD.text = " %s" % question.optionD
+func set_answers_txt():
+		$Answers/optionA.text = " %s" % question.answers[answerIndex[0]]
+		$Answers/optionB.text = " %s" % question.answers[answerIndex[1]]
+		$Answers/optionC.text = " %s" % question.answers[answerIndex[2]]
+		$Answers/optionD.text = " %s" % question.answers[answerIndex[3]]
 	
 func _on_Button_pressed():
 	queue_free() 
 	var question_feedback = preload("res://scenes/components/QuestionFeedbackCard.tscn").instance()
 	self.get_parent().add_child(question_feedback)
 	#selected correct answer
-	if ((AnswersButtonGroup.get_pressed_button()==$Answers/optionA && question.answer=="a")
-		|| (AnswersButtonGroup.get_pressed_button()==$Answers/optionB && question.answer=="b")
-		|| (AnswersButtonGroup.get_pressed_button()==$Answers/optionC && question.answer=="c")
-		|| (AnswersButtonGroup.get_pressed_button()==$Answers/optionD && question.answer=="d")):
+	if ((AnswersButtonGroup.get_pressed_button()==$Answers/optionA && str(answerIndex[0])==question.correctAnswer)
+		|| (AnswersButtonGroup.get_pressed_button()==$Answers/optionB && str(answerIndex[1])==question.correctAnswer)
+		|| (AnswersButtonGroup.get_pressed_button()==$Answers/optionC && str(answerIndex[2])==question.correctAnswer)
+		|| (AnswersButtonGroup.get_pressed_button()==$Answers/optionD && str(answerIndex[3])==question.correctAnswer)):
 		question_feedback.positive_feedback()
 		
 		#if answer is correct, remove question key from the unansweredKeys array 

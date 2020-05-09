@@ -1,42 +1,27 @@
 {
     "0": {
         "text": "Ovo je tekst prvog pitanja?",
-        "answer": "a",
-        "optionA": "odg a",
-        "optionB": "odg b",
-        "optionC": "odg c",
-        "optionD": "odg d"
+        "correctAnswer": "0",
+        "answers": ["odg a", "odg b", "odg c", "odg d"]
     },
     "1": {
         "text": "Ovo je tekst drugog pitanja?",
-        "answer": "b",
-        "optionA": "odg a",
-        "optionB": "odg b",
-        "optionC": "odg c",
-        "optionD": "odg d"
+        "correctAnswer": "1",
+        "answers": ["odg a", "odg b", "odg c", "odg d"]
     },
     "2": {
         "text": "Ovo je tekst treceg pitanja?",
-        "answer": "c",
-        "optionA": "odg a",
-        "optionB": "odg b",
-        "optionC": "odg c",
-        "optionD": "odg d"
+        "correctAnswer": "2",
+        "answers": ["odg a", "odg b", "odg c", "odg d"]
     },
     "3": {
         "text": "Ovo je tekst cetvrtog pitanja?",
-        "answer": "d",
-        "optionA": "odg a",
-        "optionB": "odg b",
-        "optionC": "odg c",
-        "optionD": "odg d"
+        "correctAnswer": "3",
+        "answers": ["odg a", "odg b", "odg c", "odg d"]
     },
     "4": {
         "text": "Ovo je tekst petog pitanja?",
-        "answer": "a",
-        "optionA": "odg a",
-        "optionB": "odg b",
-        "optionC": "odg c",
-        "optionD": "odg d"
+        "correctAnswer": "0",
+        "answers": ["odg a", "odg b", "odg c", "odg d"]
     }
 }
