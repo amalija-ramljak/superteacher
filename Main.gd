@@ -13,5 +13,4 @@ func load(path):
 func on_level_selected(level_name):
 	var path = "res://leveldata/scenes/%s.tscn" % level_name
 	var level_scene = load(path)
-	print(level_name)
 	get_tree().change_scene_to(level_scene)
