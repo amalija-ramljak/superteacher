@@ -20,4 +20,4 @@ func start_level(level_node):
 	level_node.add_child(play_button)
 
 func play(level_node):
-	pass
+	level_node.remove_child(level_node.get_child(level_node.get_child_count()-1))

@@ -14,7 +14,4 @@ func _ready():
 	level_loader.start_level(self)
 
 func play_level():
-	# removes the button which would be at the last index
-	print(self.get_child(self.get_child_count()-1))
-	self.remove_child(self.get_child(self.get_child_count()-1))
 	level_loader.play(self)
