@@ -1,0 +1,64 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/components/QuestionFeedbackCard.gd" type="Script" id=1]
+
+[node name="QuestionFeedbackCard" type="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -189.0
+margin_top = -168.544
+margin_right = 186.0
+margin_bottom = -10.5438
+rect_pivot_offset = Vector2( 260.512, 313.021 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuestionFeedback" type="Label" parent="."]
+margin_left = -0.328552
+margin_top = 0.328552
+margin_right = 373.671
+margin_bottom = 35.3286
+text = "Tocan odgovor! / Pogresan odgovor!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuestionConsequence" type="Label" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -23.0
+margin_bottom = 2.0
+text = "+1 / -1 bod"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TotalPointsLabel" type="Label" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 0.328552
+margin_top = 18.9557
+margin_right = 0.328552
+margin_bottom = 38.9557
+text = "Ukupan broj bodova: 10"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -28.5424
+margin_bottom = -8.54236
+text = "U redu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
