@@ -22,36 +22,51 @@ font_data = ExtResource( 1 )
 size = 20
 font_data = ExtResource( 1 )
 
-[node name="LevelSelectorButton" type="Button"]
-anchor_right = 1.0
-margin_left = 20.0
-margin_top = 150.0
-margin_right = -20.0
-margin_bottom = 250.0
-rect_scale = Vector2( 0.99872, 1 )
-custom_styles/disabled = SubResource( 1 )
-custom_styles/normal = SubResource( 2 )
-action_mode = 0
+
+[node name="Control" type="Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -300.0
+margin_right = 300.0
+
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LevelSelectorContainer" type="GridContainer" parent="."]
-margin_right = 559.0
-margin_bottom = 99.0
+[node name="LevelSelectorButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -270.0
+margin_right = 270.0
+margin_bottom = 100.0
+rect_scale = Vector2( 0.99872, 1 )
+custom_styles/disabled = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="LevelSelectorContainer" type="GridContainer" parent="LevelSelectorButton"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -269.5
+margin_right = 269.5
+margin_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 0
+size_flags_horizontal = 2
 columns = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LevelInfoContainer" type="GridContainer" parent="LevelSelectorContainer"]
+[node name="LevelInfoContainer" type="GridContainer" parent="LevelSelectorButton/LevelSelectorContainer"]
 margin_right = 420.0
 margin_bottom = 99.0
 
-[node name="LevelNameLabel" type="Label" parent="LevelSelectorContainer/LevelInfoContainer"]
+[node name="LevelNameLabel" type="Label" parent="LevelSelectorButton/LevelSelectorContainer/LevelInfoContainer"]
 margin_right = 420.0
 margin_bottom = 45.0
 rect_min_size = Vector2( 420, 45 )
@@ -59,7 +74,7 @@ custom_fonts/font = SubResource( 3 )
 text = "  Level"
 valign = 1
 
-[node name="LevelProgressLabel" type="Label" parent="LevelSelectorContainer/LevelInfoContainer"]
+[node name="LevelProgressLabel" type="Label" parent="LevelSelectorButton/LevelSelectorContainer/LevelInfoContainer"]
 margin_top = 49.0
 margin_right = 420.0
 margin_bottom = 99.0
@@ -69,7 +84,7 @@ text = "          Prođena sva pitanja: 0
           Trenutno odgovorena pitanja: 0/0"
 valign = 1
 
-[node name="HighScoreLabel" type="Label" parent="LevelSelectorContainer"]
+[node name="HighScoreLabel" type="Label" parent="LevelSelectorButton/LevelSelectorContainer"]
 margin_left = 424.0
 margin_right = 524.0
 margin_bottom = 99.0
