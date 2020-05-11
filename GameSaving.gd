@@ -5,16 +5,13 @@ static func load_game():
 		print("Nothing saved, so everything is empty!")
 		return empty_save()
 	else:
-		# contains the saved data, so basically only unlocked levels
+		# contains all levels as it is built over 
 		var data = parse_json(game.get_as_text())
 		game.close()
 		var f = File.new()
 		f.open("res://leveldata/level_list.json", File.READ)
 		var levels = parse_json(f.get_as_text())
 		f.close()
-		for level in levels.list:
-			if !data.unlocked.has(level):
-				data.levels[level] = empty_level(level, levels.pool_size[level])
 		return data
 
 static func load_level(name):
@@ -26,7 +23,7 @@ static func load_level(name):
 
 static func save_game(name, level_data):
 	var game = File.new()
-	game.open("user://game.save", File.READ_WRITE)
+	game.open("user://game.save", File.WRITE_READ)
 	var data = parse_json(game.get_as_text())
 	# check for new unlocked level
 	var levels = File.new()
@@ -48,12 +45,8 @@ static func save_game(name, level_data):
 	var f = File.new()
 	var f_path = "res://leveldata/questions/%s.json" % next_level_name
 	f.open(f_path, File.READ)
-	data.levels[next_level_name] = {
-		'full_passes': 0,
-		'current_correct': 0,
-		'remaining_pool': parse_json(f.get_as_text()).keys(),
-		'highscore': 0,
-	}
+	# should exist and be replaced from the empty save
+	data.levels[next_level_name].remaining_pool = parse_json(f.get_as_text()).keys()
 	f.close()
 	game.store_line(to_json(data))
 	game.close()
