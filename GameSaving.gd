@@ -4,7 +4,7 @@ static func load_game():
 	if err:
 		return empty_save()
 	else:
-		# contains all levels as it is built over 
+		# contains all levels
 		var data = parse_json(game.get_as_text())
 		game.close()
 		var f = File.new()
@@ -33,26 +33,21 @@ static func save_game(name, level_data):
 	# add the last played level new data, necessary for unlock check
 	data.levels[name] = level_data
 
-	# first locked level check
 	if data.unlocked.size() < level_list.list.size():
 		var fll_index = data.unlocked.size()
 		var fll_name = level_list.list[fll_index]
-		# last unlocked level, the 60% thresh
 		var lul_name = data.unlocked[fll_index-1]
 		var lul = data.levels[lul_name]
 		var unlock_next = lul.current_correct / level_list.pool_size[lul_name] >= 0.6 or lul.full_passes > 0
+		if fll_index - 2 >= 0:
+			unlock_next = unlock_next and data.levels[level_list.list[fll_index-2]].full_passes > 0
 		if unlock_next:
-			for i in range(fll_index - 1):
-				unlock_next = unlock_next and data.levels[level_list.list[i]].full_passes > 0
-				if !unlock_next:
-					break
-			if unlock_next:
-				# add to unlocked!
-				data.unlocked.append(fll_name)
-				var f_path = "res://leveldata/questions/%s.json" % fll_name
-				f.open(f_path, File.READ)
-				data.levels[fll_name].remaining_pool = parse_json(f.get_as_text()).keys()
-				f.close()
+			data.unlocked.append(fll_name)
+			
+			var f_path = "res://leveldata/questions/%s.json" % fll_name
+			f.open(f_path, File.READ)
+			data.levels[fll_name].remaining_pool = parse_json(f.get_as_text()).keys()
+			f.close()
 	game.store_line(to_json(data))
 	game.close()
 
@@ -70,12 +65,10 @@ static func empty_save():
 		save_data.levels[level] = empty_level(level, levels.pool_size[level])
 	return save_data
 	
-# used for empty saves (first play?) and LevelSelector for locked levels
 static func empty_level(name, pool_size):
 	var remaining_pool
 	# the first level cannot be entirely empty!
 	if name == 'Dvoriste':
-		# fetch pool from wherever
 		var f = File.new()
 		f.open("res://leveldata/questions/Dvoriste.json", File.READ)
 		remaining_pool = parse_json(f.get_as_text()).keys()
@@ -87,5 +80,4 @@ static func empty_level(name, pool_size):
 		'pool_size': pool_size,
 		'current_correct': 0,
 		'remaining_pool': remaining_pool,
-		'highscore': 0,
 	}
