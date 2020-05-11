@@ -6,7 +6,7 @@ var game_loader = preload("res://GameSaving.gd")
 
 func _ready():
 	var f = File.new()
-	f.open("res://leveldata/level_list.json")
+	f.open("res://leveldata/level_list.json", File.READ)
 	var levels = parse_json(f.get_as_text())
 	f.close()
 	var levels_data = game_loader.load_game()
