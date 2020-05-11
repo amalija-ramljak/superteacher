@@ -1,4 +1,4 @@
-func load_game():
+static func load_game():
 	var game = File.new()
 	var err = game.open("user://game.save", File.READ)
 	if err:
@@ -17,14 +17,14 @@ func load_game():
 				data.levels[level] = empty_level(level, levels.pool_size[level])
 		return data
 
-func load_level(name):
+static func load_level(name):
 	var game = File.new()
 	game.open("user://game.save", File.READ)
 	var level_data = parse_json(game.get_as_text()).levels[name]
 	game.close()
 	return level_data
 
-func save_game(name, level_data):
+static func save_game(name, level_data):
 	var game = File.new()
 	game.open("user://game.save", File.READ_WRITE)
 	var data = parse_json(game.get_as_text())
@@ -59,7 +59,7 @@ func save_game(name, level_data):
 	game.close()
 
 # used for LevelSelector on first play
-func empty_save():
+static func empty_save():
 	var f = File.new()
 	f.open("res://leveldata/level_list.json", File.READ)
 	var levels = parse_json(f.get_as_text())
@@ -73,14 +73,15 @@ func empty_save():
 	return save_data
 	
 # used for empty saves (first play?) and LevelSelector for locked levels
-func empty_level(name, pool_size):
+static func empty_level(name, pool_size):
 	var remaining_pool
 	# the first level cannot be entirely empty!
 	if name == 'Dvoriste':
 		# fetch pool from wherever
 		var f = File.new()
 		f.open("res://leveldata/questions/Dvoriste.json", File.READ)
-		remaining_pool = parse_json(f.get_as_text()).keys()
+		remaining_pool = parse_json(f.get_as_text())
+		print(remaining_pool)
 		f.close()
 	else:
 		remaining_pool = []

@@ -2,7 +2,7 @@ extends VBoxContainer
 
 export (PackedScene) var LevelSelector
 
-var game_loader = preload("res://GameSaving.gd")
+var game_loader = load("res://GameSaving.gd")
 
 func _ready():
 	var f = File.new()
