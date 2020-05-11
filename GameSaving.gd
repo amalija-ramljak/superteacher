@@ -80,8 +80,7 @@ static func empty_level(name, pool_size):
 		# fetch pool from wherever
 		var f = File.new()
 		f.open("res://leveldata/questions/Dvoriste.json", File.READ)
-		remaining_pool = parse_json(f.get_as_text())
-		print(remaining_pool)
+		remaining_pool = parse_json(f.get_as_text()).keys()
 		f.close()
 	else:
 		remaining_pool = []
