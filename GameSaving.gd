@@ -17,7 +17,7 @@ func save_game(name, level_data):
 		for i in range(next_level - 1):
 			unlock_next = unlock_next and data.levels[level_list[i]].full_passes > 0
 		var current_level = data.levels[name]
-		unlock_next = unlock_next and current_level.current_correct / current_level.total_pool >= 0.6
+		unlock_next = unlock_next and current_level.current_correct / current_level.pool_size >= 0.6
 		if unlock_next:
 			data.unlocked.append(level_list[next_level])
 	data.levels[name] = level_data
