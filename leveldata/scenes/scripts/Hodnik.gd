@@ -2,6 +2,7 @@ extends Control
 
 # the functions shared by levels
 var level_loader = preload("res://leveldata/LevelLoad.gd").new()
+var level_name = "Hodnik"
 
 var question_path = "res://leveldata/questions/hodnik.json"
 var questions

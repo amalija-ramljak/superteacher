@@ -3,12 +3,17 @@
 
 var StartLevel = preload("res://scenes/components/StartLevel.tscn")
 
-func load_level(level_node, situation_indices, question_path):
+func load_level(level_node, situation_indices):
 	set_situations(situation_indices, level_node)
-	return load_questions(question_path)
+	return load_questions(level_node.level_name)
 
-func load_questions(_question_path):
-	return [{'question':'Text of question', 'answers': ['T', 'N1', 'N2', 'N3']}]
+func load_questions(level_name):
+	var f = File.new()
+	var path = "res://leveldata/questions/%s.json" % level_name
+	f.open(path, File.READ)
+	var data = parse_json(f.get_as_text())
+	f.close()
+	return data
 
 func set_situations(indices, level_node):
 	for index in indices:
