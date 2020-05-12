@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://fonts/QuickSand/Quicksand-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://visuals/images/cog.png" type="Texture" id=2]
+[ext_resource path="res://scenes/components/QuitGame.gd" type="Script" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0.345098, 0.14902, 1 )
@@ -8,6 +10,30 @@ bg_color = Color( 0, 0.345098, 0.14902, 1 )
 [sub_resource type="DynamicFont" id=2]
 size = 50
 font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.00392157, 0.188235, 0.0392157, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0, 0.282353, 0.0509804, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0, 0.282353, 0.0509804, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [node name="GameTitle" type="Label"]
 anchor_right = 1.0
@@ -21,3 +47,33 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Cog" type="Button" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 28.22
+margin_top = -24.195
+margin_right = 1064.22
+margin_bottom = 1005.81
+rect_scale = Vector2( 0.05, 0.05 )
+icon = ExtResource( 2 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitGame" type="Button" parent="."]
+visible = false
+margin_left = 9.0
+margin_top = 86.0
+margin_right = 103.0
+margin_bottom = 113.0
+custom_styles/hover = SubResource( 4 )
+custom_styles/normal = SubResource( 3 )
+text = "Quit Game"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_up" from="Cog" to="QuitGame" method="_on_Cog_button_up"]
+[connection signal="button_up" from="QuitGame" to="QuitGame" method="_on_QuitGame_button_up"]
