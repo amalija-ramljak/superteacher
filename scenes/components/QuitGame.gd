@@ -9,4 +9,4 @@ func _on_QuitGame_button_up():
 
 
 func _on_Cog_button_up():
-	self.visible = true
+	self.visible = !self.visible
