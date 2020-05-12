@@ -70,8 +70,9 @@ static func empty_level(name, pool_size):
 	# the first level cannot be entirely empty!
 	if name == 'Dvoriste':
 		var f = File.new()
-		f.open("res://leveldata/questions/Dvoriste.json", File.READ)
-		remaining_pool = parse_json(f.get_as_text()).keys()
+		#f.open("res://leveldata/questions/Dvoriste.json", File.READ)
+		f.open("res://leveldata/level1_question_list.json", File.READ)
+		remaining_pool = parse_json(f.get_as_text())
 		f.close()
 	else:
 		remaining_pool = []
