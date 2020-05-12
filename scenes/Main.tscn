@@ -21,11 +21,9 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 130.0
-margin_bottom = -0.00012207
+margin_bottom = 6.10352e-05
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 scroll_horizontal_enabled = false
 __meta__ = {
 "_edit_use_anchors_": true
@@ -33,9 +31,13 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
 margin_right = 600.0
-margin_bottom = 830.0
+margin_bottom = 900.0
+rect_min_size = Vector2( 600, 830 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 120
 script = ExtResource( 1 )
 LevelSelector = ExtResource( 4 )
+
+[node name="Empty" type="Control" parent="ScrollContainer/VBoxContainer"]
+margin_right = 600.0

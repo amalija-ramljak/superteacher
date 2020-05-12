@@ -1,10 +1,28 @@
 {
-    "list": ["Dvoriste", "Hodnik", "Ucionica", "Kabinet", "Zbornica"],
+    "list": [
+        "Dvoriste",
+        "Hodnik",
+        "Ucionica",
+        "Kabinet",
+        "Zbornica",
+        "Test1",
+        "Test2",
+        "Test3",
+        "Test4",
+        "Test5",
+        "Test6"
+    ],
     "pool_size": {
         "Dvoriste": 50,
         "Hodnik": 56,
         "Ucionica": 55,
         "Kabinet": 41,
-        "Zbornica": 45
+        "Zbornica": 45,
+        "Test1": 1,
+        "Test2": 2,
+        "Test3": 3,
+        "Test4": 4,
+        "Test5": 5,
+        "Test6": 6
     }
 }
