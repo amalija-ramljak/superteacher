@@ -35,3 +35,6 @@ func play_level():
 
 func move(move_by):
 	level_loader.play_turn(self, move_by)
+
+func _on_ExitLevel_exit():
+	get_tree().change_scene("res://scenes/Main.tscn")

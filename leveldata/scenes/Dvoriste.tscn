@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/components/QuestionCard.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/components/LevelField.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://scenes/components/SituationCard.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/components/QuestionFeedbackCard.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/components/EndLevelCard.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/components/ExitLevel.tscn" type="PackedScene" id=10]
 
 [node name="Dvoriste" type="Control"]
 anchor_right = 1.0
@@ -19,8 +20,8 @@ __meta__ = {
 }
 
 [node name="Extras" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 600.0
+margin_bottom = 960.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -34,10 +35,12 @@ z_as_relative = false
 
 [node name="StartLevel" parent="Extras" instance=ExtResource( 6 )]
 show_behind_parent = true
-margin_left = 213.826
-margin_top = 456.002
-margin_right = 363.826
-margin_bottom = 516.002
+
+[node name="ExitLevel" parent="Extras" instance=ExtResource( 10 )]
+margin_left = 25.0
+margin_top = 25.0
+margin_right = -575.0
+margin_bottom = -935.0
 
 [node name="FieldsNode" type="Node2D" parent="."]
 
@@ -95,6 +98,7 @@ position = Vector2( 344.799, 381.811 )
 
 [node name="LevelField14" parent="FieldsNode" instance=ExtResource( 2 )]
 position = Vector2( 253.242, 430.512 )
+z_index = -1
 
 [node name="LevelField15" parent="FieldsNode" instance=ExtResource( 2 )]
 position = Vector2( 149.997, 426.616 )
@@ -148,3 +152,4 @@ margin_top = -127.0
 margin_right = 187.5
 margin_bottom = 127.0
 [connection signal="button_up" from="Extras/StartLevel" to="." method="play_level"]
+[connection signal="exit" from="Extras/ExitLevel" to="." method="_on_ExitLevel_exit"]

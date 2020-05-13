@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/components/LevelField.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/components/StartLevel.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://scenes/components/QuestionFeedbackCard.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/components/Player.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/components/EndLevelCard.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/components/ExitLevel.tscn" type="PackedScene" id=10]
 
 [node name="Hodnik" type="Control"]
 anchor_right = 1.0
@@ -23,29 +24,28 @@ __meta__ = {
 }
 
 [node name="Extras" type="Control" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = -20.0
-margin_right = 20.0
-margin_bottom = 20.0
+margin_right = 600.0
+margin_bottom = 960.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="GoalSign" parent="Extras" instance=ExtResource( 3 )]
-position = Vector2( 214.269, -357.881 )
+position = Vector2( 495.563, 89.9685 )
 
 [node name="Player" parent="Extras" instance=ExtResource( 8 )]
 visible = true
-z_index = 1
-z_as_relative = false
+z_index = 2
 
 [node name="StartLevel" parent="Extras" instance=ExtResource( 2 )]
-margin_top = -10.0
-margin_bottom = 50.0
+
+[node name="ExitLevel" parent="Extras" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 25.0
+margin_bottom = 25.0
 
 [node name="FieldsNode" type="Node2D" parent="."]
 
@@ -149,3 +149,4 @@ margin_top = 363.0
 margin_right = 491.0
 margin_bottom = 615.0
 [connection signal="button_up" from="Extras/StartLevel" to="." method="play_level"]
+[connection signal="exit" from="Extras/ExitLevel" to="." method="_on_ExitLevel_exit"]
