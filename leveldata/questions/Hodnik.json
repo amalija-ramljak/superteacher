@@ -1,27 +1,22 @@
 {
     "0": {
-        "text": "Ovo je tekst prvog pitanja?",
-        "correctAnswer": "0",
-        "answers": ["odg a", "odg b", "odg c", "odg d"]
+        "text": "Odaberi a",
+        "answers": ["odg a", "odg b", "odg c"]
     },
     "1": {
-        "text": "Ovo je tekst drugog pitanja?",
-        "correctAnswer": "1",
-        "answers": ["odg a", "odg b", "odg c", "odg d"]
+        "text": "Odaberi b",
+        "answers": ["odg b", "odg a", "odg c"]
     },
     "2": {
-        "text": "Ovo je tekst treceg pitanja?",
-        "correctAnswer": "2",
-        "answers": ["odg a", "odg b", "odg c", "odg d"]
+        "text": "Odaberi c",
+        "answers": ["odg c", "odg b", "odg a"]
     },
     "3": {
-        "text": "Ovo je tekst cetvrtog pitanja?",
-        "correctAnswer": "3",
-        "answers": ["odg a", "odg b", "odg c", "odg d"]
+        "text": "Odaberi b",
+        "answers": ["odg b", "odg a", "odg c"]
     },
     "4": {
-        "text": "Ovo je tekst petog pitanja?",
-        "correctAnswer": "0",
-        "answers": ["odg a", "odg b", "odg c", "odg d"]
+        "text": "Odaberi a",
+        "answers": ["odg a", "odg b", "odg c"]
     }
 }

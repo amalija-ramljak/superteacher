@@ -1,22 +1,22 @@
 {
     "0": {
         "text": "Odaberi a",
-        "answers": ["odg a", "odg b", "odg c", "odg d"]
+        "answers": ["odg a", "odg b", "odg c"]
     },
     "1": {
         "text": "Odaberi b",
-        "answers": ["odg b", "odg a", "odg c", "odg d"]
+        "answers": ["odg b", "odg a", "odg c"]
     },
     "2": {
         "text": "Odaberi c",
-        "answers": ["odg c", "odg b", "odg a", "odg d"]
+        "answers": ["odg c", "odg b", "odg a"]
     },
     "3": {
-        "text": "Odaberi d",
-        "answers": ["odg d", "odg b", "odg c", "odg a"]
+        "text": "Odaberi b",
+        "answers": ["odg b", "odg a", "odg c"]
     },
     "4": {
         "text": "Odaberi a",
-        "answers": ["odg a", "odg b", "odg c", "odg d"]
+        "answers": ["odg a", "odg b", "odg c"]
     }
 }

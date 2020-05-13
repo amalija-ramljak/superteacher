@@ -7,7 +7,7 @@ var AnswersButtonGroup
 var question_feedback
 var question
 var question_index
-var answerIndex = [0, 1, 2, 3]
+var answerIndex = [0, 1, 2]
 
 func load_card(qi):
 	question_index = qi
@@ -25,7 +25,6 @@ func _ready():
 	$Answers/optionA.set_button_group(AnswersButtonGroup)
 	$Answers/optionB.set_button_group(AnswersButtonGroup)
 	$Answers/optionC.set_button_group(AnswersButtonGroup)
-	$Answers/optionD.set_button_group(AnswersButtonGroup)
 	level_node = self.get_parent().get_parent()
 	question_feedback = self.get_parent().get_node("QuestionFeedbackCard")
 	question_feedback.connect("move_by", self.get_parent().get_parent(), "move")
@@ -37,7 +36,6 @@ func set_answers_txt():
 	$Answers/optionA.text = question.answers[answerIndex[0]]
 	$Answers/optionB.text = question.answers[answerIndex[1]]
 	$Answers/optionC.text = question.answers[answerIndex[2]]
-	$Answers/optionD.text = question.answers[answerIndex[3]]
 	
 func _on_Button_pressed():
 	self.visible = false 

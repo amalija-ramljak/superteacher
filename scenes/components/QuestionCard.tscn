@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://fonts/QuickSand/QSDynamic16.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scenes/components/QuestionCard.gd" type="Script" id=2]
@@ -12,18 +12,15 @@ resource_local_to_scene = false
 
 [sub_resource type="ButtonGroup" id=3]
 
-[sub_resource type="ButtonGroup" id=4]
-resource_local_to_scene = false
-
 [node name="QuestionCard" type="Panel"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -187.5
-margin_top = -126.0
+margin_top = -133.5
 margin_right = 187.5
-margin_bottom = 126.0
+margin_bottom = 133.5
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -44,13 +41,12 @@ __meta__ = {
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = 9.0
-margin_top = -44.0
-margin_right = -10.0
-margin_bottom = 71.0
-custom_constants/vseparation = 29
+margin_left = 9.89075
+margin_top = -42.395
+margin_right = -9.10925
+margin_bottom = 80.605
+custom_constants/vseparation = 15
 custom_constants/hseparation = 155
-columns = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -66,29 +62,20 @@ __meta__ = {
 }
 
 [node name="optionB" type="CheckBox" parent="Answers"]
-margin_left = 179.0
-margin_right = 203.0
-margin_bottom = 28.0
+margin_top = 43.0
+margin_right = 24.0
+margin_bottom = 71.0
 custom_fonts/font = ExtResource( 1 )
 action_mode = 0
 group = SubResource( 2 )
 
 [node name="optionC" type="CheckBox" parent="Answers"]
-margin_top = 57.0
+margin_top = 86.0
 margin_right = 24.0
-margin_bottom = 85.0
+margin_bottom = 114.0
 custom_fonts/font = ExtResource( 1 )
 action_mode = 0
 group = SubResource( 3 )
-
-[node name="optionD" type="CheckBox" parent="Answers"]
-margin_left = 179.0
-margin_top = 57.0
-margin_right = 203.0
-margin_bottom = 85.0
-custom_fonts/font = ExtResource( 1 )
-action_mode = 0
-group = SubResource( 4 )
 
 [node name="Button" parent="." instance=ExtResource( 3 )]
 anchor_left = 0.5
