@@ -1,16 +1,18 @@
 extends Panel
 
+func _ready():
+	self.visible = false
+	self.get_node("Button").connect("button_up", self.get_parent(), "move")
+
 func _on_Button_pressed():
-	queue_free()
+	self.visible = false
 	
 func positive_feedback():
 	$QuestionFeedback.text = "Tocan odgovor!"
-	$QuestionConsequence.text = "+1 bod"
+	$QuestionConsequence.text = "Pomices se jedno polje naprijed!"
+	self.get_parent().set_direction(1)
 	
 func negative_feedback():
 	$QuestionFeedback.text = "Pogresan odgovor!"
-	$QuestionConsequence.text = "-1 bod"
-	
-func set_total_points():
-	$TotalPointsLabel.text = "10 bodova"
-
+	$QuestionConsequence.text = "Pomices se jedno polje natrag!"
+	self.get_parent().set_direction(-1)

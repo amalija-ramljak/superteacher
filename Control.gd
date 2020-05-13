@@ -12,10 +12,3 @@ func _on_Button_pressed():
 		get_tree().change_scene_to(level_selector)
 	else:
 		get_tree().change_scene("res://scenes/PlayerCreation.tscn")
-
-func load(var path):
-	var file = File.new()
-	file.open(path, File.READ)
-	var content = file.get_as_text()
-	file.close()
-	return content
