@@ -18,6 +18,7 @@ var player
 func _ready():
 	question_card = $Cards/QuestionCard
 	situation_card = $Cards/SituationCard
+	situation_card.connect("move_by", self, "move")
 	player = $Extras/Player
 	fields = $FieldsNode.get_children()
 	# the saved level data - remaining pool, full passes...

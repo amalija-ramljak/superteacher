@@ -3,8 +3,8 @@
 [ext_resource path="res://fonts/QuickSand/Quicksand-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/components/LevelSelector.gd" type="Script" id=2]
 
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.458824, 0.458824, 0.458824, 1 )
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.345098, 0.345098, 0.345098, 1 )
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.188235, 0.188235, 0.188235, 1 )
@@ -38,7 +38,7 @@ margin_left = -270.0
 margin_right = 270.0
 margin_bottom = 100.0
 rect_scale = Vector2( 0.99872, 1 )
-custom_styles/disabled = SubResource( 1 )
+custom_styles/disabled = SubResource( 5 )
 custom_styles/normal = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -60,12 +60,13 @@ __meta__ = {
 
 [node name="LevelNameLabel" type="Label" parent="LevelSelectorButton/LevelInfoContainer"]
 margin_right = 540.0
-margin_bottom = 50.0
+margin_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Level"
 align = 1
 valign = 1
@@ -75,6 +76,7 @@ margin_top = 48.0
 margin_right = 540.0
 margin_bottom = 87.0
 custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Prođena sva pitanja: 0
 Trenutno odgovorena pitanja: 0/0"
 align = 1

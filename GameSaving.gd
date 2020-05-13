@@ -18,12 +18,14 @@ static func load_level(name):
 
 static func save_game(name, level_data):
 	var game = File.new()
-	game.open("user://game.save", File.WRITE_READ)
+	game.open("user://game.save", File.READ)
 	var data = parse_json(game.get_as_text())
+	game.close()
+	game.open("user://game.save", File.WRITE)
 	
 	var f = File.new()
 	f.open("res://leveldata/level_list.json", File.READ)
-	var level_list = parse_json(f.get_as_text)
+	var level_list = parse_json(f.get_as_text())
 	f.close()
 
 	# add the last played level new data, necessary for unlock check

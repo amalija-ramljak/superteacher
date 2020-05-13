@@ -3,11 +3,6 @@
 
 var StartLevel = preload("res://scenes/components/StartLevel.tscn")
 
-var moreFieldsLeft
-var playerPosition
-var fieldName
-var fieldIsQuestion
-
 static func load_questions(level_name):
 	var f = File.new()
 	var path = "res://leveldata/questions/%s.json" % level_name
@@ -31,16 +26,17 @@ static func set_situations(level_node):
 static func play(level_node):
 	level_node.get_node("Extras/StartLevel").hide()
 	level_node.get_node("Extras/StartLevel").disabled = true
-	level_node.player.move(level_node.fields, 0)
-	level_node.player.show()
 	play_turn(level_node, 0)
 		
 static func play_turn(level_node, move_by):
 	# if move returns false, it means the level is over
 	var end = !level_node.player.move(level_node.fields, move_by)
 	if end:
+		# show end card and save data
 		var end_card = level_node.get_node("Cards/EndLevelCard")
 		end_card.add_text(level_node.level_name, level_node.level_data.pool_size, level_node.saved_loader.load_level(level_node.level_name), level_node.level_data)
+		var saver = load("res://GameSaving.gd")
+		saver.save_game(level_node.level_name, level_node.level_data)
 		end_card.show()
 	else:
 		# sleep

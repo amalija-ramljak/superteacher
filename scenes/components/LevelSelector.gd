@@ -14,8 +14,10 @@ func set_progress(full_runs, current, total):
 	$LevelSelectorButton/LevelInfoContainer/LevelProgressLabel.text = progress_text % [full_runs, current, total]
 
 func disable():
-	var button = self.get_child(0)
-	button.disabled = true
-
+	$LevelSelectorButton.disabled = true
+	var grey = 0.6
+	$LevelSelectorButton/LevelInfoContainer/LevelNameLabel.set("custom_colors/font_color",Color(grey,grey,grey))
+	$LevelSelectorButton/LevelInfoContainer/LevelProgressLabel.set("custom_colors/font_color",Color(grey,grey,grey))
+	
 func empty_text():
 	$LevelSelectorButton/LevelInfoContainer/LevelProgressLabel.text = "Zaključano!"

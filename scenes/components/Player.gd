@@ -6,11 +6,11 @@ func _ready():
 	var f = ConfigFile.new()
 	f.load("user://settings.cfg")
 	var avatar = f.get_value("player_data", "gender")
-	print(avatar)
 	self.texture = load("res://icon.png")
 
 # need to move fields in level inside a separate component
 func move(fields, move_by):
+	print(self.visible)
 	var new_index = index + move_by
 	if new_index < fields.size():
 		# indices are 0-22, field size should be 23
