@@ -14,13 +14,15 @@ func _ready():
 	for level in levels.list:
 		var level_selector = LevelSelector.instance()
 		add_child(level_selector)
-		print(levels_data)
 		var level_data = levels_data.levels[level]
 		level_selector.set_name(level)
-		level_selector.set_progress(level_data.full_passes, level_data.current_correct, levels.pool_size[level])
-		# terrible but oh well
-		level_selector.get_child(0).connect("button_up", self.get_parent().get_parent(), "on_level_selected", [level_selector.level_name])
 		if (!levels_data.unlocked.has(level)):
 			level_selector.disable()
+			level_selector.empty_text()
+		else:
+			level_selector.set_progress(level_data.full_passes, level_data.current_correct, level_data.pool_size)
+			# terrible but oh well
+			level_selector.get_child(0).connect("button_up", self.get_parent().get_parent(), "on_level_selected", [level_selector.level_name])
+
 	remove_child(empty_control)
 	add_child(empty_control)

@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=10 format=2]
 
+[ext_resource path="res://scenes/components/QuestionCard.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/components/LevelField.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/components/GoalSign.tscn" type="PackedScene" id=3]
 [ext_resource path="res://leveldata/scenes/scripts/Dvoriste.gd" type="Script" id=4]
+[ext_resource path="res://scenes/components/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/components/StartLevel.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/components/SituationCard.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/components/QuestionFeedbackCard.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/components/EndLevelCard.tscn" type="PackedScene" id=9]
 
 [node name="Dvoriste" type="Control"]
 anchor_right = 1.0
@@ -12,47 +18,71 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Control" type="Control" parent="."]
+[node name="Extras" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="GoalSign" parent="Control" instance=ExtResource( 3 )]
-position = Vector2( 510.962, 56.0875 )
+[node name="GoalSign" parent="Extras" instance=ExtResource( 3 )]
+position = Vector2( 532.788, 51.7757 )
+
+[node name="Player" parent="Extras" instance=ExtResource( 5 )]
+z_index = 1
+z_as_relative = false
+
+[node name="StartLevel" parent="Extras" instance=ExtResource( 6 )]
+show_behind_parent = true
+margin_left = 213.826
+margin_top = 456.002
+margin_right = 363.826
+margin_bottom = 516.002
 
 [node name="FieldsNode" type="Node2D" parent="."]
 
 [node name="LevelField0" parent="FieldsNode" instance=ExtResource( 2 )]
 position = Vector2( 44.8044, 894.14 )
+z_as_relative = false
 
 [node name="LevelField1" parent="FieldsNode" instance=ExtResource( 2 )]
 position = Vector2( 85.7127, 775.311 )
+z_as_relative = false
 
 [node name="LevelField2" parent="FieldsNode" instance=ExtResource( 2 )]
 position = Vector2( 44.8043, 668.17 )
 
 [node name="LevelField3" parent="FieldsNode" instance=ExtResource( 2 )]
 position = Vector2( 116.201, 590.596 )
+z_as_relative = false
 
 [node name="LevelField4" parent="FieldsNode" instance=ExtResource( 2 )]
 position = Vector2( 221.233, 648.821 )
+z_as_relative = false
 
 [node name="LevelField5" parent="FieldsNode" instance=ExtResource( 2 )]
 position = Vector2( 261.034, 761.675 )
+z_as_relative = false
 
 [node name="LevelField6" parent="FieldsNode" instance=ExtResource( 2 )]
 position = Vector2( 354.539, 837.647 )
+z_as_relative = false
 
 [node name="LevelField7" parent="FieldsNode" instance=ExtResource( 2 )]
 position = Vector2( 481.16, 829.855 )
+z_as_relative = false
 
 [node name="LevelField8" parent="FieldsNode" instance=ExtResource( 2 )]
 position = Vector2( 518.173, 734.402 )
+z_as_relative = false
 
 [node name="LevelField9" parent="FieldsNode" instance=ExtResource( 2 )]
 position = Vector2( 471.42, 635.054 )
+z_as_relative = false
 
 [node name="LevelField10" parent="FieldsNode" instance=ExtResource( 2 )]
 position = Vector2( 508.432, 520.121 )
+z_as_relative = false
 
 [node name="LevelField11" parent="FieldsNode" instance=ExtResource( 2 )]
 position = Vector2( 531.809, 412.98 )
@@ -89,3 +119,32 @@ position = Vector2( 479.212, 188.958 )
 
 [node name="LevelField22" parent="FieldsNode" instance=ExtResource( 2 )]
 position = Vector2( 542.173, 118.976 )
+
+[node name="Cards" type="Node2D" parent="."]
+position = Vector2( 300, 450 )
+z_index = 5
+
+[node name="QuestionCard" parent="Cards" instance=ExtResource( 1 )]
+visible = false
+
+[node name="SituationCard" parent="Cards" instance=ExtResource( 7 )]
+visible = false
+margin_left = -187.5
+margin_top = -96.5
+margin_right = 187.5
+margin_bottom = 96.5
+
+[node name="QuestionFeedbackCard" parent="Cards" instance=ExtResource( 8 )]
+visible = false
+margin_left = -187.5
+margin_top = -77.0
+margin_right = 187.5
+margin_bottom = 77.0
+
+[node name="EndLevelCard" parent="Cards" instance=ExtResource( 9 )]
+visible = false
+margin_left = -187.5
+margin_top = -127.0
+margin_right = 187.5
+margin_bottom = 127.0
+[connection signal="button_up" from="Extras/StartLevel" to="." method="play_level"]

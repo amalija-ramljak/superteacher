@@ -4,13 +4,9 @@ static func load_game():
 	if err:
 		return empty_save()
 	else:
-		# contains all levels
+		# contains all levels and remaining pools and pool sizes
 		var data = parse_json(game.get_as_text())
 		game.close()
-		var f = File.new()
-		f.open("res://leveldata/level_list.json", File.READ)
-		var levels = parse_json(f.get_as_text())
-		f.close()
 		return data
 
 static func load_level(name):
@@ -38,16 +34,11 @@ static func save_game(name, level_data):
 		var fll_name = level_list.list[fll_index]
 		var lul_name = data.unlocked[fll_index-1]
 		var lul = data.levels[lul_name]
-		var unlock_next = lul.current_correct / level_list.pool_size[lul_name] >= 0.6 or lul.full_passes > 0
+		var unlock_next = lul.current_correct / lul.pool_size >= 0.6 or lul.full_passes > 0
 		if fll_index - 2 >= 0:
 			unlock_next = unlock_next and data.levels[level_list.list[fll_index-2]].full_passes > 0
 		if unlock_next:
 			data.unlocked.append(fll_name)
-			
-			var f_path = "res://leveldata/questions/%s.json" % fll_name
-			f.open(f_path, File.READ)
-			data.levels[fll_name].remaining_pool = parse_json(f.get_as_text()).keys()
-			f.close()
 	game.store_line(to_json(data))
 	game.close()
 
@@ -62,20 +53,19 @@ static func empty_save():
 		'levels': {}
 	}
 	for level in levels.list:
-		save_data.levels[level] = empty_level(level, levels.pool_size[level])
+		save_data.levels[level] = empty_level(level)
 	return save_data
 	
-static func empty_level(name, pool_size):
+static func empty_level(name):
 	var remaining_pool
+	var pool_size
 	# the first level cannot be entirely empty!
-	if name == 'Dvoriste':
-		var f = File.new()
-		#f.open("res://leveldata/questions/Dvoriste.json", File.READ)
-		f.open("res://leveldata/level1_question_list.json", File.READ)
-		remaining_pool = parse_json(f.get_as_text())
-		f.close()
-	else:
-		remaining_pool = []
+	var f = File.new()
+	var f_path = "res://leveldata/questions/%s.json" % name
+	f.open(f_path, File.READ)
+	remaining_pool = parse_json(f.get_as_text()).keys()
+	pool_size = remaining_pool.size()
+	f.close()
 	return {
 		'full_passes': 0,
 		'pool_size': pool_size,

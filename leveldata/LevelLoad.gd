@@ -2,20 +2,13 @@
 # like a parent class but I don't know OOP in Godot
 
 var StartLevel = preload("res://scenes/components/StartLevel.tscn")
-var player = preload("res://scenes/components/Player.tscn").instance()
-var question_card = preload("res://scenes/components/QuestionCard.tscn").instance()
-var situation_card = preload("res://scenes/components/SituationCard.tscn").instance()
 
 var moreFieldsLeft
 var playerPosition
 var fieldName
 var fieldIsQuestion
 
-func load_level(level_node, situation_indices):
-	set_situations(situation_indices, level_node)
-	return load_questions(level_node.level_name)
-
-func load_questions(level_name):
+static func load_questions(level_name):
 	var f = File.new()
 	var path = "res://leveldata/questions/%s.json" % level_name
 	f.open(path, File.READ)
@@ -23,7 +16,7 @@ func load_questions(level_name):
 	f.close()
 	return data
 	
-func load_situations(level_name):
+static func load_situations(level_name):
 	var f = File.new()
 	var path = "res://leveldata/situations/%s.json" % level_name
 	f.open(path, File.READ)
@@ -31,48 +24,36 @@ func load_situations(level_name):
 	f.close()
 	return data
 
-func set_situations(indices, level_node):
-	for index in indices:
+static func set_situations(level_node):
+	for index in level_node.situation_numbers:
 		level_node.get_child(1).get_child(index).situation()
 
-func start_level(level_node):
-	var play_button = StartLevel.instance()
-	play_button.get_child(0).connect("button_up", level_node, "play_level")
-	level_node.add_child(play_button)
-
-func play(level_node):
-	level_node.remove_child(level_node.get_child(level_node.get_child_count()-1))
-	
-	level_node.add_child(player)
-	playerPosition = 0
-	moreFieldsLeft = player.move(level_node.get_node("FieldsNode").get_children(), playerPosition, 0)
-	
-	level_node.add_child(question_card)
-	question_card.load_card(level_node.questions)
-	
-	level_node.add_child(situation_card)
-	
-	#check level field type (question or situation)
-	fieldName = "LevelField" + str(playerPosition)
-	fieldIsQuestion = level_node.get_node("FieldsNode/"+str(fieldName)).question
+static func play(level_node):
+	level_node.get_node("Extras/StartLevel").hide()
+	level_node.get_node("Extras/StartLevel").disabled = true
+	level_node.player.move(level_node.fields, 0)
+	level_node.player.show()
+	play_turn(level_node, 0)
 		
-func movePlayer(level_node, direction):
-	if(moreFieldsLeft):
-		moreFieldsLeft = player.move(level_node.get_node("FieldsNode").get_children(), playerPosition, direction)
-		#prevent playerPosition to have negative values
-		if(playerPosition == 0 && direction == -1):
-			pass
+static func play_turn(level_node, move_by):
+	# if move returns false, it means the level is over
+	var end = !level_node.player.move(level_node.fields, move_by)
+	if end:
+		var end_card = level_node.get_node("Cards/EndLevelCard")
+		end_card.add_text(level_node.level_name, level_node.level_data.pool_size, level_node.saved_loader.load_level(level_node.level_name), level_node.level_data)
+		end_card.show()
+	else:
+		# sleep
+		yield(level_node.get_tree().create_timer(0.25), "timeout")
+		# otherwise it plays!
+		if level_node.fields[level_node.player.index].question:
+			var question = pick_random(level_node.level_data.remaining_pool)
+			level_node.question_card.load_card(question)
 		else:
-			playerPosition = playerPosition + direction
-	else:
-		print("gotovo")
-		var end_level_card = preload("res://scenes/components/EndLevelCard.tscn").instance()
-		level_node.add_child(end_level_card)
-	
-	fieldName = "LevelField" + str(playerPosition)
-	fieldIsQuestion = level_node.get_node("FieldsNode/"+str(fieldName)).question
-	
-	if(fieldIsQuestion):
-		question_card.load_card(level_node.questions)
-	else:
-		situation_card.load_card(level_node.situations)
+			var situation = pick_random(level_node.situations.keys())
+			level_node.situation_card.load_card(level_node.situations[situation])
+
+static func pick_random(list):
+	randomize()
+	var rand_index = randi() % list.size()
+	return list[rand_index]

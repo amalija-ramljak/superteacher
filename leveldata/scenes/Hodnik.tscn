@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/components/LevelField.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/components/StartLevel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/components/GoalSign.tscn" type="PackedScene" id=3]
 [ext_resource path="res://leveldata/scenes/scripts/Hodnik.gd" type="Script" id=4]
+[ext_resource path="res://scenes/components/SituationCard.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/components/QuestionCard.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/components/QuestionFeedbackCard.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/components/Player.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/components/EndLevelCard.tscn" type="PackedScene" id=9]
 
 [node name="Hodnik" type="Control"]
 anchor_right = 1.0
@@ -16,12 +22,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Control" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="Extras" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="GoalSign" parent="Control" instance=ExtResource( 3 )]
-position = Vector2( 514.15, 89.5616 )
+[node name="GoalSign" parent="Extras" instance=ExtResource( 3 )]
+position = Vector2( 214.269, -357.881 )
+
+[node name="StartLevel" parent="Extras" instance=ExtResource( 2 )]
+margin_top = -10.0
+margin_bottom = 50.0
+
+[node name="Player" parent="Extras" instance=ExtResource( 8 )]
 
 [node name="FieldsNode" type="Node2D" parent="."]
 
@@ -93,3 +114,33 @@ position = Vector2( 492.387, 161.544 )
 
 [node name="LevelField" parent="FieldsNode" instance=ExtResource( 1 )]
 position = Vector2( 438.108, 883.97 )
+
+[node name="Cards" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -480.0
+margin_right = 300.0
+margin_bottom = 480.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuestionCard" parent="Cards" instance=ExtResource( 6 )]
+visible = false
+
+[node name="SituationCard" parent="Cards" instance=ExtResource( 5 )]
+visible = false
+
+[node name="QuestionFeedbackCard" parent="Cards" instance=ExtResource( 7 )]
+visible = false
+margin_left = -187.5
+margin_top = -77.0
+margin_right = 187.5
+margin_bottom = 77.0
+
+[node name="EndLevelCard" parent="Cards" instance=ExtResource( 9 )]
+visible = false
+[connection signal="button_up" from="Extras/StartLevel" to="." method="play_level"]

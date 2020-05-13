@@ -1,18 +1,36 @@
 extends Control
 
 # the functions shared by levels
-var level_loader = preload("res://leveldata/LevelLoad.gd").new()
+var saved_loader = preload("res://GameSaving.gd")
+var level_loader = preload("res://leveldata/LevelLoad.gd")
 var level_name = "Hodnik"
+var level_data
 
-var question_path = "res://leveldata/questions/hodnik.json"
 var questions
+var situations
+var situation_numbers = [6, 13, 19]
 
-var situation_path = "res://leveldata/situations/hodnik.json"
-var situation_numbers = [6, 13, 20]
+var question_card
+var situation_card
+var fields
+var player
 
 func _ready():
-	questions = level_loader.load_level(self, situation_numbers)
-	level_loader.start_level(self)
+	question_card = $Cards/QuestionCard
+	situation_card = $Cards/SituationCard
+	player = $Extras/Player
+	fields = $FieldsNode.get_children()
+	# the saved level data - remaining pool, full passes...
+	level_data = saved_loader.load_level(level_name)
+	# the full q and s lists for this level
+	questions = level_loader.load_questions(level_name)
+	situations = level_loader.load_situations(level_name)
+	level_loader.set_situations(self)
+	player.move(fields, 0)
+	player.show()
 
 func play_level():
 	level_loader.play(self)
+	
+func move(move_by):
+	level_loader.play_turn(self, move_by)
