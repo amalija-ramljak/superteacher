@@ -8,9 +8,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -189.0
-margin_top = -168.544
+margin_top = -169.0
 margin_right = 186.0
-margin_bottom = -10.5438
+margin_bottom = -65.0
 rect_pivot_offset = Vector2( 260.512, 313.021 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -31,22 +31,11 @@ __meta__ = {
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_top = -23.0
-margin_bottom = 2.0
-text = "+1 / -1 bod"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TotalPointsLabel" type="Label" parent="."]
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = 0.328552
-margin_top = 18.9557
-margin_right = 0.328552
-margin_bottom = 38.9557
-text = "Ukupan broj bodova: 10"
+margin_left = -0.512848
+margin_top = -17.3587
+margin_right = -0.512848
+margin_bottom = 7.64133
+text = "naprijed /natrag"
 __meta__ = {
 "_edit_use_anchors_": false
 }

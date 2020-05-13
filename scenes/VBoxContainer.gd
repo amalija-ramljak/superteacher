@@ -14,6 +14,7 @@ func _ready():
 	for level in levels.list:
 		var level_selector = LevelSelector.instance()
 		add_child(level_selector)
+		print(levels_data)
 		var level_data = levels_data.levels[level]
 		level_selector.set_name(level)
 		level_selector.set_progress(level_data.full_passes, level_data.current_correct, levels.pool_size[level])
