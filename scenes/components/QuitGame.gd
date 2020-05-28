@@ -7,6 +7,6 @@ func _ready():
 func _on_QuitGame_button_up():
 	get_tree().quit()
 
-
 func _on_Cog_button_up():
 	self.visible = !self.visible
+	self.disabled = !self.disabled

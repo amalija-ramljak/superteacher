@@ -18,11 +18,18 @@ func _ready():
 		level_selector.set_name(level)
 		if (!levels_data.unlocked.has(level)):
 			level_selector.disable()
-			level_selector.empty_text()
 		else:
-			level_selector.set_progress(level_data.full_passes, level_data.current_correct, level_data.pool_size)
-			# terrible but oh well
-			level_selector.get_child(0).connect("button_up", self.get_parent().get_parent(), "on_level_selected", [level_selector.level_name])
+			level_selector.set_progress(
+				level_data.full_passes,
+				level_data.current_correct,
+				level_data.pool_size
+			)
+			level_selector.get_child(0).connect(
+				"button_up",
+				self.get_parent().get_parent(),
+				"on_level_selected",
+				[level_selector.level_name]
+			)
 
 	remove_child(empty_control)
 	add_child(empty_control)

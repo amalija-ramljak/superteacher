@@ -22,12 +22,10 @@ func load_card(qi):
 func _ready():
 	#group buttons so they act as radio buttons
 	AnswersButtonGroup = ButtonGroup.new()
-	$Answers/optionA.set_button_group(AnswersButtonGroup)
-	$Answers/optionB.set_button_group(AnswersButtonGroup)
-	$Answers/optionC.set_button_group(AnswersButtonGroup)
+	for option in $Answers.get_children():
+		option.set_button_group(AnswersButtonGroup)
 	level_node = self.get_parent().get_parent()
 	question_feedback = self.get_parent().get_node("QuestionFeedbackCard")
-	question_feedback.connect("move_by", self.get_parent().get_parent(), "move")
 	
 func set_question_txt(txt):
 	$QuestionText.text = txt
@@ -44,7 +42,6 @@ func _on_Button_pressed():
 	if pressed_button != null:
 		if pressed_button.text == question.answers[0]:
 			level_node.level_data.remaining_pool.remove(level_node.level_data.remaining_pool.find((question_index)))
-			print(level_node.level_data.remaining_pool)
 			if level_node.level_data.remaining_pool.size() == 0:
 				level_node.level_data.remaining_pool = level_node.questions.keys()
 				level_node.level_data.full_passes += 1

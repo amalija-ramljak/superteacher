@@ -51,7 +51,7 @@ static func empty_save():
 	var levels = parse_json(f.get_as_text())
 	f.close()
 	var save_data = {
-		'unlocked': ['Dvoriste'],
+		'unlocked': [levels.list[0]],
 		'levels': {}
 	}
 	for level in levels.list:

@@ -34,7 +34,7 @@ text = "Izađi"
 anchor_right = 1.0
 margin_right = -3.05176e-05
 margin_bottom = 71.0
-text = "Razina Ucionica dovršena"
+text = "Razina dovršena"
 align = 1
 valign = 1
 
@@ -46,8 +46,8 @@ margin_top = -56.0
 margin_right = 0.0
 margin_bottom = 56.0
 text = "Napredak:
-stari progress => novi progress
+stari napredak => novi napredak
 
-(if) Prolasci kroz skup pitanja
+(ako je različito) Prolasci kroz skup pitanja
 stari_broj => novi_broj"
 [connection signal="button_up" from="EndLevelButton" to="." method="_on_EndLevelButton_button_up"]

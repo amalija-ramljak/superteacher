@@ -38,13 +38,13 @@ anchor_bottom = 0.5
 margin_top = -19.0
 margin_right = 0.0
 margin_bottom = 16.0
-text = "naprijed /natrag"
+text = "Pomičeš se za N polja naprijed/natrag."
 
 [node name="QuestionFeedback" parent="." instance=ExtResource( 4 )]
 anchor_right = 1.0
 margin_right = 0.0
 margin_bottom = 48.0
-text = "X odgovor!"
+text = "Točan/netočan odgovor!"
 align = 1
 valign = 1
 [connection signal="button_up" from="Button" to="." method="_on_Button_pressed"]

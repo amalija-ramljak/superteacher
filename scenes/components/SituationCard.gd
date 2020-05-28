@@ -24,19 +24,9 @@ func set_situation_txt(txt):
 	
 func set_situation_consequence(consequenceCode):
 	feedback = consequenceCode
-	match consequenceCode:
-		1: 
-			$SituationConsequence.text = "Pomices se 1 polje naprijed!"
-		2:
-			$SituationConsequence.text = "Pomices se 2 polja naprijed!"
-		3:
-			$SituationConsequence.text = "Pomices se 3 polja naprijed!"
-		-1:
-			$SituationConsequence.text = "Pomices se 1 polje natrag!"
-		-2:
-			$SituationConsequence.text = "Pomices se 2 polja natrag!"
-		-3:
-			$SituationConsequence.text = "Pomices se 3 polja natrag!"
+	$SituationConsequence.text = "Pomičeš se %d %s %s" % [abs(consequenceCode),
+		"polje" if abs(consequenceCode) == 1 else "polja",
+		"naprijed" if consequenceCode > 0 else "natrag"]
 
 func _on_Button_pressed():
 	self.visible = false

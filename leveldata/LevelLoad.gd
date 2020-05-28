@@ -30,15 +30,7 @@ static func play(level_node):
 		
 static func play_turn(level_node, move_by):
 	# if move returns false, it means the level is over
-	var end = !level_node.player.move(level_node.fields, move_by)
-	if end:
-		# show end card and save data
-		var end_card = level_node.get_node("Cards/EndLevelCard")
-		end_card.add_text(level_node.level_name, level_node.level_data.pool_size, level_node.saved_loader.load_level(level_node.level_name), level_node.level_data)
-		var saver = load("res://GameSaving.gd")
-		saver.save_game(level_node.level_name, level_node.level_data)
-		end_card.show()
-	else:
+	if level_node.player.move(level_node.fields, move_by):
 		# sleep
 		yield(level_node.get_tree().create_timer(0.25), "timeout")
 		# otherwise it plays!
@@ -48,6 +40,13 @@ static func play_turn(level_node, move_by):
 		else:
 			var situation = pick_random(level_node.situations.keys())
 			level_node.situation_card.load_card(level_node.situations[situation])
+	else:
+		# show end card and save data
+		var end_card = level_node.get_node("Cards/EndLevelCard")
+		end_card.add_text(level_node.level_name, level_node.level_data.pool_size, level_node.saved_loader.load_level(level_node.level_name), level_node.level_data)
+		var saver = load("res://GameSaving.gd")
+		saver.save_game(level_node.level_name, level_node.level_data)
+		end_card.show()
 
 static func pick_random(list):
 	randomize()

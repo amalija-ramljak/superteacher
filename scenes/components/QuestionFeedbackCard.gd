@@ -5,6 +5,7 @@ signal move_by
 
 func _ready():
 	self.visible = false
+	connect("move_by", self.get_parent().get_parent(), "move")
 
 func _on_Button_pressed():
 	self.visible = false

@@ -26,13 +26,13 @@ anchor_bottom = 0.5
 margin_top = -1.5
 margin_right = 0.0
 margin_bottom = 43.5
-text = "Posljedica"
+text = "Pomičeš se za N polja naprijed/natrag."
 
 [node name="SituationText" parent="." instance=ExtResource( 2 )]
 anchor_right = 1.0
 margin_right = 0.0
 margin_bottom = 93.0
-text = "Situacija"
+text = "Tekst situacije."
 align = 1
 valign = 1
 

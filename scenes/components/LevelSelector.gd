@@ -18,6 +18,5 @@ func disable():
 	var grey = 0.6
 	$LevelSelectorButton/LevelInfoContainer/LevelNameLabel.set("custom_colors/font_color",Color(grey,grey,grey))
 	$LevelSelectorButton/LevelInfoContainer/LevelProgressLabel.set("custom_colors/font_color",Color(grey,grey,grey))
-	
-func empty_text():
 	$LevelSelectorButton/LevelInfoContainer/LevelProgressLabel.text = "Zaključano!"
+	

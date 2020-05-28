@@ -18,6 +18,7 @@ var player
 func _ready():
 	question_card = $Cards/QuestionCard
 	situation_card = $Cards/SituationCard
+	# can be done in editor, code unnecessary
 	situation_card.connect("move_by", self, "move")
 	player = $Extras/Player
 	fields = $FieldsNode.get_children()
