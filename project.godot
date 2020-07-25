@@ -25,6 +25,10 @@ window/size/width=600
 window/size/height=960
 window/stretch/aspect="expand"
 
+[gdnative]
+
+singletons=[  ]
+
 [rendering]
 
 environment/default_clear_color=Color( 0.878431, 0.678431, 0.556863, 1 )

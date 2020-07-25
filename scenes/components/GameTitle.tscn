@@ -2,7 +2,7 @@
 
 [ext_resource path="res://fonts/QuickSand/Quicksand-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://visuals/images/cog.png" type="Texture" id=2]
-[ext_resource path="res://scenes/components/QuitGame.gd" type="Script" id=3]
+[ext_resource path="res://scenes/components/scripts/QuitGame.gd" type="Script" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0.345098, 0.14902, 1 )
