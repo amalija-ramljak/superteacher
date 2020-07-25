@@ -3,7 +3,7 @@
 [ext_resource path="res://scenes/components/QuestionCard.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/components/LevelField.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/components/GoalSign.tscn" type="PackedScene" id=3]
-[ext_resource path="res://leveldata/scenes/scripts/Dvoriste.gd" type="Script" id=4]
+[ext_resource path="res://leveldata/scenes/scripts/Level.gd" type="Script" id=4]
 [ext_resource path="res://scenes/components/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/components/StartLevel.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/components/SituationCard.tscn" type="PackedScene" id=7]
@@ -18,6 +18,11 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+level_name = {
+"data": "Dvoriste",
+"visual": "Dvoriste"
+}
+situation_numbers = [ 4, 12, 19 ]
 
 [node name="Extras" type="Control" parent="."]
 margin_right = 600.0
@@ -151,5 +156,4 @@ margin_left = -187.5
 margin_top = -127.0
 margin_right = 187.5
 margin_bottom = 127.0
-[connection signal="button_up" from="Extras/StartLevel" to="." method="play_level"]
 [connection signal="exit" from="Extras/ExitLevel" to="." method="_on_ExitLevel_exit"]

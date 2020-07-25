@@ -22,7 +22,7 @@ func configure_player(gender):
 	config.save("user://settings.cfg")
 	
 	# creates an empty save!
-	var game_loader = load("res://GameSaving.gd")
+	var game_loader = load("res://leveldata/GameSaving.gd")
 	var game = File.new()
 	game.open("user://game.save", File.WRITE)
 	game.store_line(to_json(game_loader.empty_save()))

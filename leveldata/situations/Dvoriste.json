@@ -1,21 +1,9 @@
 {
-    "0": {
+    "s1": {
         "text": "Ovo je tekst prve situacije",
         "consequence": 1
     },
-    "1": {
-        "text": "Ovo je tekst druge situacije",
-        "consequence": -2
-    },
-    "2": {
-        "text": "Ovo je tekst trece situacije",
-        "consequence": -1
-    },
-    "3": {
-        "text": "Ovo je tekst cetvrte situacije",
-        "consequence": -3
-    },
-    "4": {
+    "s2": {
         "text": "Ovo je tekst pete situacije",
         "consequence": 2
     }

@@ -3,7 +3,7 @@
 [ext_resource path="res://scenes/components/LevelField.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/components/StartLevel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/components/GoalSign.tscn" type="PackedScene" id=3]
-[ext_resource path="res://leveldata/scenes/scripts/Hodnik.gd" type="Script" id=4]
+[ext_resource path="res://leveldata/scenes/scripts/Level.gd" type="Script" id=4]
 [ext_resource path="res://scenes/components/SituationCard.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/components/QuestionCard.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/components/QuestionFeedbackCard.tscn" type="PackedScene" id=7]
@@ -22,6 +22,11 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+level_name = {
+"data": "Hodnik",
+"visual": "Hodnik"
+}
+situation_numbers = [ 7, 12, 21 ]
 
 [node name="Extras" type="Control" parent="."]
 margin_right = 600.0
