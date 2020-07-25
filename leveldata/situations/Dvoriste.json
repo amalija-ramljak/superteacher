@@ -1,10 +1,22 @@
 {
     "s1": {
-        "text": "Ovo je tekst prve situacije",
-        "consequence": 1
+        "text": "Uskočili ste i mijenjali kolegu koji nije mogao održati sat, odlično!",
+        "consequence": 3
+    },
+    "s5": {
+        "text": "Kolega vas je zamolio da ga mijenjate za vrijeme dežurstva jer se razbolio. Uskočili ste i pomogli kolegi. Bravo!",
+        "consequence": 3
     },
     "s2": {
-        "text": "Ovo je tekst pete situacije",
-        "consequence": 2
+        "text": "Saznali ste da vam je dodatno smanjena satnica.",
+        "consequence": -2
+    },
+    "s3": {
+        "text": "Dogovorili ste suradnju sa kolegom/icom iz Hrvatskog jezika oko zajedničkog projekta osmišljavanja i izrade plakata, odlično!",
+        "consequence": 1
+    },
+    "s4": {
+        "text": "Kasnite na sat, a ne možete naći materijale koje ste pripremili.",
+        "consequence": -1
     }
 }

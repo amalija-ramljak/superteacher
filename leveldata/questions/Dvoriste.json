@@ -1,22 +1,22 @@
 {
     "q1": {
-        "text": "Odaberi a",
-        "answers": ["odg a", "odg b", "odg c"]
+        "text": "Što znači biti predvodnik?",
+        "answers": ["Onaj koji diktira pravila", "Onaj u čijoj se prisutnosti dobro osjećate", "Onaj koji popušta u svakoj situaciji"]
     },
     "q2": {
-        "text": "Odaberi b",
-        "answers": ["odg b", "odg a", "odg c"]
+        "text": "Odredi karakteristike starog načina poučavanja (stari vođa)",
+        "answers": [
+            "Dominacija i kontrola nad okolnostima i ljudima, posjedovanje vlasti i manipuliranje",
+            "Dominacija i kontroliranje uz mogućnost popuštanja",
+            "Ravnodušnost prema svim obavezama nad učenicima"
+        ]
     },
     "q14": {
-        "text": "Odaberi c",
-        "answers": ["odg c", "odg b", "odg a"]
-    },
-    "q5": {
-        "text": "Odaberi b",
-        "answers": ["odg b", "odg a", "odg c"]
-    },
-    "q3": {
-        "text": "Odaberi a",
-        "answers": ["odg a", "odg b", "odg c"]
+        "text": "Odredi karakteristike novog načina poučavanja (novi predvodnik)",
+        "answers": [
+            "Potiče druge da daju sve od sebe dajući im potpunu slobodu pri tome.",
+            "Potiče druge da daju sve od sebe, modelira poželjne osobine točno određenim pravilima i uputama koje se učenici moraju držati.",
+            "Potiče druge da daju sve od sebe, modelira poželjne osobine i ponašanja, posjeduje viziju koja druge nadahnjuje na djelovanje."
+        ]
     }
 }

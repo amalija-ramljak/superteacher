@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://fonts/QuickSand/QSDynamic16.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scenes/components/scripts/QuestionCard.gd" type="Script" id=2]
 [ext_resource path="res://scenes/basic/Button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/basic/Label.tscn" type="PackedScene" id=4]
 
 [sub_resource type="ButtonGroup" id=1]
 resource_local_to_scene = false
@@ -17,10 +18,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -187.5
-margin_top = -133.5
-margin_right = 187.5
-margin_bottom = 133.5
+margin_left = -187.0
+margin_top = -133.0
+margin_right = 188.0
+margin_bottom = 176.0
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -29,7 +30,7 @@ __meta__ = {
 [node name="QuestionText" type="Label" parent="."]
 anchor_right = 1.0
 margin_right = 1.0
-margin_bottom = 79.0
+margin_bottom = 88.0
 custom_fonts/font = ExtResource( 1 )
 text = "Tekst pitanja."
 align = 1
@@ -40,47 +41,69 @@ __meta__ = {
 }
 
 [node name="Answers" type="GridContainer" parent="."]
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 9.89075
-margin_top = -42.395
-margin_right = -9.10925
-margin_bottom = 80.605
-custom_constants/vseparation = 15
+margin_left = -177.5
+margin_top = -61.5
+margin_right = 178.5
+margin_bottom = 102.5
+custom_constants/vseparation = 25
 custom_constants/hseparation = 155
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="optionA" type="CheckBox" parent="Answers"]
-margin_right = 107.0
+margin_right = 24.0
 margin_bottom = 28.0
 custom_fonts/font = ExtResource( 1 )
 action_mode = 0
 group = SubResource( 1 )
-text = "Odgovor 1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label" parent="Answers/optionA" instance=ExtResource( 4 )]
+margin_left = 21.0
+margin_top = 5.0
+margin_right = 354.0
+margin_bottom = 55.0
+align = 0
+valign = 0
+
 [node name="optionB" type="CheckBox" parent="Answers"]
-margin_top = 43.0
-margin_right = 107.0
-margin_bottom = 71.0
+margin_top = 53.0
+margin_right = 24.0
+margin_bottom = 81.0
 custom_fonts/font = ExtResource( 1 )
 action_mode = 0
 group = SubResource( 2 )
-text = "Odgovor 2"
+
+[node name="Label" parent="Answers/optionB" instance=ExtResource( 4 )]
+margin_left = 20.0
+margin_top = 5.0
+margin_right = 353.0
+margin_bottom = 55.0
+align = 0
+valign = 0
 
 [node name="optionC" type="CheckBox" parent="Answers"]
-margin_top = 86.0
-margin_right = 107.0
-margin_bottom = 114.0
+margin_top = 106.0
+margin_right = 24.0
+margin_bottom = 134.0
 custom_fonts/font = ExtResource( 1 )
 action_mode = 0
 group = SubResource( 3 )
-text = "Odgovor 3"
+
+[node name="Label" parent="Answers/optionC" instance=ExtResource( 4 )]
+margin_left = 20.0
+margin_top = 5.0
+margin_right = 353.0
+margin_bottom = 55.0
+align = 0
+valign = 0
 
 [node name="Button" parent="." instance=ExtResource( 3 )]
 anchor_left = 0.5
